@@ -8,7 +8,7 @@ class_name statParent
 @export var val: int:
 	set(value):
 		val = value
-		var tween = get_tree().create_tween()
+		var tween = create_tween()
 		tween.tween_property($".", "value", value, 1)
 
 func _process(_delta: float) -> void:
