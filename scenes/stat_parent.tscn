@@ -2,16 +2,21 @@
 
 [ext_resource type="Texture2D" uid="uid://hruywihk051r" path="res://graphics/progress_bar/bg.png" id="1_6griu"]
 [ext_resource type="Script" path="res://scenes/scripts/stat.gd" id="1_j1c4x"]
-[ext_resource type="Texture2D" uid="uid://c7fb2m7sxkhrk" path="res://graphics/progress_bar/over.png" id="2_qchih"]
-[ext_resource type="Texture2D" uid="uid://c42aidhk83dqb" path="res://graphics/progress_bar/progress.png" id="3_vxvqi"]
+[ext_resource type="Texture2D" uid="uid://cngtee4trgnfa" path="res://graphics/progress_bar/over.png" id="2_u7r45"]
+[ext_resource type="Texture2D" uid="uid://bgu0u2kxrml1b" path="res://graphics/progress_bar/progress.png" id="3_hq8pk"]
 
 [node name="TextureProgressBar" type="TextureProgressBar"]
-offset_right = 300.0
-offset_bottom = 30.0
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -30.0
+grow_horizontal = 2
+grow_vertical = 0
 value = 100.0
 texture_under = ExtResource("1_6griu")
-texture_over = ExtResource("2_qchih")
-texture_progress = ExtResource("3_vxvqi")
+texture_over = ExtResource("2_u7r45")
+texture_progress = ExtResource("3_hq8pk")
 script = ExtResource("1_j1c4x")
 degration = 20.0
 val = 100

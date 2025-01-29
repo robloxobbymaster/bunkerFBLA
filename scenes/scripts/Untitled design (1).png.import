@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cngtee4trgnfa"
-path="res://.godot/imported/over.png-c4ef69cec13106e66e259bc3821e3e88.ctex"
+uid="uid://iu32qixitovg"
+path="res://.godot/imported/Untitled design (1).png-516eada5358f1412f90a743586e7a430.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/progress_bar/over.png"
-dest_files=["res://.godot/imported/over.png-c4ef69cec13106e66e259bc3821e3e88.ctex"]
+source_file="res://scenes/scripts/Untitled design (1).png"
+dest_files=["res://.godot/imported/Untitled design (1).png-516eada5358f1412f90a743586e7a430.ctex"]
 
 [params]
 
