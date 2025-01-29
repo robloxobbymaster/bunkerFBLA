@@ -34,6 +34,8 @@ func display(text: String = "....", displayName: String = "?????", icon: Resourc
 		await get_tree().create_timer(typingSpeed/2).timeout
 		AudioManager.play(AudioManager.SoundIds.DIALOG)
 	
+	
+	
 	return 0
 
 
