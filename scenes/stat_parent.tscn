@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://qrdykj1xf2hr"]
+
+[ext_resource type="Script" path="res://scenes/stat.gd" id="1_j1c4x"]
+
+[node name="MarginContainer" type="MarginContainer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 15
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+layout_mode = 2
+script = ExtResource("1_j1c4x")
+
+[node name="DegrationTimer" type="Timer" parent="TextureProgressBar"]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="TextureProgressBar/DegrationTimer" to="TextureProgressBar" method="_on_degration_timer_timeout"]
