@@ -1,0 +1,66 @@
+[gd_scene load_steps=5 format=3 uid="uid://bvhnityf0suhk"]
+
+[ext_resource type="Script" path="res://scenes/scripts/dialog_system.gd" id="1_13ky7"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3tcor"]
+
+[sub_resource type="Gradient" id="Gradient_d3oxd"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_s08tx"]
+gradient = SubResource("Gradient_d3oxd")
+
+[node name="DialogSystem" type="NinePatchRect"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -577.5
+offset_top = -271.0
+offset_right = 577.5
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("NoiseTexture2D_3tcor")
+script = ExtResource("1_13ky7")
+
+[node name="Icon" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 57.5
+offset_top = 31.0
+offset_right = 205.5
+offset_bottom = 173.0
+texture = SubResource("GradientTexture1D_s08tx")
+expand_mode = 1
+
+[node name="Dialog" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 275.0
+offset_top = 37.0
+offset_right = 1118.0
+offset_bottom = 229.0
+text = "ererwrweqqw
+
+qerq
+
+
+qewr
+
+wer
+q
+"
+fit_content = true
+
+[node name="DisplayName" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 65.5
+offset_top = 175.0
+offset_right = 200.5
+offset_bottom = 213.0
+bbcode_enabled = true
+text = "[center]Fornite Guy[/center]"
+fit_content = true
