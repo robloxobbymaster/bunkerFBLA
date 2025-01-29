@@ -5,8 +5,8 @@ const SPEED = 5
 signal finishedLerp
 
 @onready var anchorDiff = anchor_bottom - anchor_top
-var shown_anchor: float = 1
-var hidden_anchor: float = 1.5
+var shown_anchor: float = 0
+@onready var hidden_anchor: float = size.y
 var target_anchor: float = hidden_anchor #THIS IS FOR TOP ANCHOR
 var queue = [];
 
@@ -43,9 +43,14 @@ func _ready() -> void:
 	_hide()
 	await get_tree().create_timer(3).timeout
 	display("HEJKFL:LJSLFKLDJFSKLDFJLSJDFLKSJKLFSJKLFDJSLDFJLKJFKLJDFKLj")
+	for btn in %Decisions.get_children():
+		btn.connect("mouse_entered", func():
+			%Hover.position.y = (btn.position.y + (btn.size.y/2))-(%Hover.size.y/2)
+			)
+	
 	
 func _process(delta: float) -> void:
-	anchor_top = lerp(anchor_top, target_anchor, delta*SPEED)
+	offset_top = lerp(offset_top, target_anchor, delta*SPEED)
 	if anchor_top == target_anchor:
 		finishedLerp.emit()
-	anchor_bottom = lerp(anchor_bottom, target_anchor+anchorDiff, delta*SPEED)
+	offset_bottom = lerp(offset_bottom, target_anchor+anchorDiff, delta*SPEED)

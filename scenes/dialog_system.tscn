@@ -1,17 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://bvhnityf0suhk"]
+[gd_scene load_steps=4 format=3 uid="uid://bvhnityf0suhk"]
 
 [ext_resource type="Script" path="res://scenes/scripts/dialog_system.gd" id="1_13ky7"]
 [ext_resource type="Texture2D" uid="uid://cmadi8c8b6rng" path="res://graphics/dialogSystem/DialogBar.png" id="1_17yl3"]
+[ext_resource type="Texture2D" uid="uid://b87dqbgyo8v33" path="res://graphics/dialogSystem/SelectSymbol.png" id="3_814je"]
 
 [node name="DialogSystem" type="NinePatchRect"]
 anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
+anchor_left = -0.001
+anchor_top = 0.582
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -577.5
-offset_top = -271.0
-offset_right = 577.5
+offset_left = 0.152
+offset_top = -0.136017
+offset_right = 0.151978
+offset_bottom = -0.135986
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 4
@@ -21,30 +23,95 @@ script = ExtResource("1_13ky7")
 
 [node name="Icon" type="TextureRect" parent="."]
 unique_name_in_owner = true
-layout_mode = 0
-offset_left = 57.5
-offset_top = 31.0
-offset_right = 205.5
-offset_bottom = 173.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.114
+anchor_right = 0.178
+anchor_bottom = 0.638
+offset_left = -0.25
+offset_top = 0.105997
+offset_right = -0.0899963
+offset_bottom = 0.10199
 expand_mode = 1
 
 [node name="Dialog" type="RichTextLabel" parent="."]
 unique_name_in_owner = true
-layout_mode = 0
-offset_left = 275.0
-offset_top = 37.0
-offset_right = 1118.0
-offset_bottom = 229.0
-text = ".."
-fit_content = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.238
+anchor_top = 0.137
+anchor_right = 0.968
+anchor_bottom = 0.587
+offset_left = 0.109985
+offset_top = -0.127003
+offset_right = -0.0400391
+offset_bottom = -0.0769958
+text = "wlecome "
+scroll_active = false
 
 [node name="DisplayName" type="RichTextLabel" parent="."]
 unique_name_in_owner = true
-layout_mode = 0
-offset_left = 65.5
-offset_top = 175.0
-offset_right = 200.5
-offset_bottom = 213.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.057
+anchor_top = 0.646
+anchor_right = 0.174
+anchor_bottom = 0.786
+offset_left = -0.229668
+offset_top = 0.0218658
+offset_right = -0.148453
+offset_bottom = 0.100906
 bbcode_enabled = true
 text = "[center]Fornite Guy[/center]"
 fit_content = true
+
+[node name="Decisions" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchor_left = 0.228
+anchor_top = 0.556
+anchor_right = 0.959
+anchor_bottom = 0.869
+offset_left = -262.919
+offset_top = -150.6
+offset_right = -1107.62
+offset_bottom = -235.499
+
+[node name="Decision2" type="Button" parent="Decisions"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 267.5
+offset_top = 198.0
+offset_right = 883.5
+offset_bottom = 229.0
+grow_vertical = 0
+focus_mode = 0
+text = "Decision 2
+"
+flat = true
+alignment = 0
+
+[node name="Decision1" type="Button" parent="Decisions"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 267.5
+offset_top = 158.0
+offset_right = 538.708
+offset_bottom = 189.0
+grow_vertical = 0
+focus_mode = 0
+text = "Decision 1"
+flat = true
+alignment = 0
+
+[node name="Hover" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 238.5
+offset_top = 158.0
+offset_right = 265.5
+offset_bottom = 188.0
+texture = ExtResource("3_814je")
