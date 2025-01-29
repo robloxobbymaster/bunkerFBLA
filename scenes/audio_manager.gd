@@ -4,7 +4,7 @@ var SoundIds = {
 	DIALOG = load("res://soundEffects/dialogSoundEffect.mp3")
 }
 
-func play(audio: AudioStream, volume: float = 1) -> void:
+func play(audio: AudioStream, volume: float = 0.75) -> void:
 	var newSound: AudioStreamPlayer2D = AudioStreamPlayer2D.new()
 	newSound.stream = audio
 	newSound.volume_db = volume

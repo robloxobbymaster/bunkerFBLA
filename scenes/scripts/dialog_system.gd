@@ -3,8 +3,13 @@ extends NinePatchRect
 var queue = [];
 
 
-func display(text: String = "....", displayName: String = "?????", icon: Image = null, typingSpeed: float = 0.15) -> int:
+func display(text: String = "....", displayName: String = "?????", icon: Resource = load("res://graphics/dialogSystem/mysteriousIcon.png"), typingSpeed: float = 0.15) -> int:
+	
 	%Dialog.text = ""
+	
+	%DisplayName.text = displayName
+	
+	%Icon.texture = icon
 	
 	var splittedText := text.split("")
 	

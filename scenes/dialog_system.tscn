@@ -1,13 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bvhnityf0suhk"]
+[gd_scene load_steps=3 format=3 uid="uid://bvhnityf0suhk"]
 
 [ext_resource type="Script" path="res://scenes/scripts/dialog_system.gd" id="1_13ky7"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3tcor"]
-
-[sub_resource type="Gradient" id="Gradient_d3oxd"]
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_s08tx"]
-gradient = SubResource("Gradient_d3oxd")
+[ext_resource type="Texture2D" uid="uid://cmadi8c8b6rng" path="res://graphics/dialogSystem/DialogBar.png" id="1_17yl3"]
 
 [node name="DialogSystem" type="NinePatchRect"]
 anchors_preset = 7
@@ -22,7 +16,7 @@ grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = SubResource("NoiseTexture2D_3tcor")
+texture = ExtResource("1_17yl3")
 script = ExtResource("1_13ky7")
 
 [node name="Icon" type="TextureRect" parent="."]
@@ -32,7 +26,6 @@ offset_left = 57.5
 offset_top = 31.0
 offset_right = 205.5
 offset_bottom = 173.0
-texture = SubResource("GradientTexture1D_s08tx")
 expand_mode = 1
 
 [node name="Dialog" type="RichTextLabel" parent="."]
@@ -42,16 +35,7 @@ offset_left = 275.0
 offset_top = 37.0
 offset_right = 1118.0
 offset_bottom = 229.0
-text = "ererwrweqqw
-
-qerq
-
-
-qewr
-
-wer
-q
-"
+text = ".."
 fit_content = true
 
 [node name="DisplayName" type="RichTextLabel" parent="."]
