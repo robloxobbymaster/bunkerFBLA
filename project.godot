@@ -18,6 +18,11 @@ config/icon="res://icon.svg"
 
 AudioManager="*res://scenes/AudioManager.tscn"
 
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/aspect="ignore"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
