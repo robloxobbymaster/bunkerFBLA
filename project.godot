@@ -21,7 +21,7 @@ AudioManager="*res://scenes/AudioManager.tscn"
 [display]
 
 window/stretch/mode="viewport"
-window/stretch/aspect="ignore"
+window/stretch/aspect="expand"
 
 [rendering]
 

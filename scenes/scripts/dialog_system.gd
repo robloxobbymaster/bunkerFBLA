@@ -45,7 +45,7 @@ func _ready() -> void:
 	display("HEJKFL:LJSLFKLDJFSKLDFJLSJDFLKSJKLFSJKLFDJSLDFJLKJFKLJDFKLj")
 	for btn in %Decisions.get_children():
 		btn.connect("mouse_entered", func():
-			%Hover.position.y = (btn.position.y + (btn.size.y/2))-(%Hover.size.y/2)
+			%Hover.position.y = (btn.position.y + %Decisions.position.y + (btn.size.y/2))-(%Hover.size.y/2)
 			)
 	
 	
