@@ -110,3 +110,16 @@ offset_top = 154.0
 offset_right = 260.0
 offset_bottom = 184.0
 texture = ExtResource("3_814je")
+
+[node name="TEMPLATEBTN" type="Button" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+offset_left = 262.0
+offset_top = 188.0
+offset_right = 1108.0
+offset_bottom = 219.0
+focus_mode = 0
+text = "Decision 1"
+flat = true
+alignment = 0
