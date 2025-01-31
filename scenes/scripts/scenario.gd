@@ -1,6 +1,19 @@
 class_name Scenario extends Node
 
 """
+JSON FORMAT:
+
+{
+	"main_dialog_piece" : msg,
+	"choices" : choices,
+	"reveal" : reveal
+}
+
+"""
+
+
+
+"""
 Choices:
 	{
 	"answerChoice" : {
