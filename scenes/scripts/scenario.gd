@@ -33,6 +33,9 @@ var main_dialog_piece: String
 var choices : Dictionary
 var reveal: int
 
+#to initialize the class from JSON object
+static func from_json(json: Dictionary) -> Scenario:
+	return Scenario.new(json.get("main_dialog_piece","??????"), json.get("choices", {}), json.get("reveal",0))
 
 
 #Main_Dialog_Piece : The piece that is displayed initially. #Choices : The choices the user can make. #Reveal: How long in seconds for the outcome to be shown.
