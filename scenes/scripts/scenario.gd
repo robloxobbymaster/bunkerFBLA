@@ -3,10 +3,15 @@ class_name Scenario extends Node
 """
 Choices:
 	{
-	"answerChoice" : [
-		{ msg : "Outcome msg", stats: {
+	"answerChoice" : {
+		OUTCOMES: [
+		{ MSG : "Outcome msg", STATS: {
 			HEALTH = -5,
-		} }
+		}, TRIGGERS: ["eat"}],
+
+		TRIGGERS: ["beep"],
+		
+		}
 	]
 	}
 """
@@ -26,8 +31,7 @@ func _init(main_dialog_piece: String = "????????", choices: Dictionary = {}, rev
 
 
 func determineOutcome(key: String) -> String:
-	print(self.choices.get(key,[]))
-	var outcomes: Array = self.choices.get(key,[])
+	var outcomes: Array = self.choices.get(key).OUTCOMES
 	var random_outcome: Dictionary = outcomes.pick_random()
 	for stat in random_outcome.STATS.keys():
 		GameManager[stat] += random_outcome.STATS.stat
