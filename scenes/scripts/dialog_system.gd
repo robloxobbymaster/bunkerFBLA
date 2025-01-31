@@ -44,15 +44,13 @@ func display(text: String = "....", displayName: String = "?????", icon: Resourc
 	return 0
 
 func display_scenario(scenario: Scenario, displayName: String = "?????", icon: Resource = load("res://graphics/dialogSystem/mysteriousIcon.png"), typingSpeed: float = 0.15) -> int:
-	
-	
 	var db := false
 	
 	for node in %Decisions.get_children(): node.queue_free()
 	for key in scenario.choices.keys():
 		var choice = scenario.choices[key]
 		var choiceBTN: Button = %TEMPLATEBTN.duplicate()
-		choiceBTN.text = choice["TITLE"]
+		choiceBTN.text = key
 		choiceBTN.connect("mouse_entered", func():
 			%Hover.position.y = (choiceBTN.position.y + %Decisions.position.y + (choiceBTN.size.y/2))-(%Hover.size.y/2)
 			)
@@ -64,8 +62,9 @@ func display_scenario(scenario: Scenario, displayName: String = "?????", icon: R
 				decisionMade.emit()
 			)
 		%Decisions.add_child(choiceBTN)
+		choiceBTN.show()
 	
-	display(scenario["TITLE"], displayName, icon, false, typingSpeed)
+	display(scenario.main_dialog_piece, displayName, icon, false, typingSpeed)
 	
 	await decisionMade
 	_hide()
@@ -74,8 +73,8 @@ func display_scenario(scenario: Scenario, displayName: String = "?????", icon: R
 
 func _ready() -> void:
 	_hide()
-	await get_tree().create_timer(3).timeout
-	display("HEJKFL:LJSLFKLDJFSKLDFJLSJDFLKSJKLFSJKLFDJSLDFJLKJFKLJDFKLj")
+	var x = Scenario.new("Eat apples?", {"Yes" : {}, "No": {}})
+	display_scenario(x)
 
 	
 	

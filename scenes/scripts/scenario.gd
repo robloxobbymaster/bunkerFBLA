@@ -10,6 +10,13 @@ Choices:
 	]
 	}
 """
+
+var main_dialog_piece: String
+var choices : Dictionary
+var reveal: int
+
+
+
 #Main_Dialog_Piece : The piece that is displayed initially. #Choices : The choices the user can make. #Reveal: How long in seconds for the outcome to be shown.
 func _init(main_dialog_piece: String = "????????", choices: Dictionary = {}, reveal: int = -1):
 	self.main_dialog_piece = main_dialog_piece
@@ -19,7 +26,8 @@ func _init(main_dialog_piece: String = "????????", choices: Dictionary = {}, rev
 
 
 func determineOutcome(key: String) -> String:
-	var outcomes: Array = self.choices[key]
+	print(self.choices.get(key,[]))
+	var outcomes: Array = self.choices.get(key,[])
 	var random_outcome: Dictionary = outcomes.pick_random()
 	for stat in random_outcome.STATS.keys():
 		GameManager[stat] += random_outcome.STATS.stat
