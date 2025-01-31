@@ -16,11 +16,13 @@ JSON FORMAT:
 """
 Choices:
 	{
+
+	I want 8 cans from you or else I take 5 health
 	"answerChoice" : {
 		OUTCOMES: [
 		{ MSG : "Outcome msg", STATS: {
-			HEALTH = -5,
-		}, TRIGGERS: ["eat"}],
+			HEALTH = [-100,-5],
+		}, TRIGGERS: ["eat"],
 
 		TRIGGERS: ["beep"],
 		
@@ -50,7 +52,8 @@ func determineOutcome(key: String) -> String:
 	var outcomes: Array = self.choices.get(key).OUTCOMES
 	var random_outcome: Dictionary = outcomes.pick_random()
 	for stat in random_outcome.STATS.keys():
-		GameManager[stat] += random_outcome.STATS.stat
+		var range: Array = random_outcome.STATS.keys().get(stat)
+		GameManager[stat] += (randi() % (range[1]-range[0]+1) + range[0])
 	
 	return random_outcome.MSG
 	#DialogSys.display(random_outcome["msg"])
