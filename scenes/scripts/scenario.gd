@@ -7,7 +7,6 @@ JSON FORMAT:
 	"main_dialog_piece" : msg,
 	"choices" : choices,
 	"reveal" : reveal
-}
 
 """
 
@@ -37,18 +36,23 @@ var choices : Dictionary
 var reveal: int
 var outcomeStats: Dictionary
 
+var imageAddress: String
+var senderName: String
+
 #to initialize the class from JSON object
 static func from_json(json: Dictionary) -> Scenario:
-	return Scenario.new(json.get("main_dialog_piece","??????"), json.get("choices", {}), json.get("reveal",0))
+	var default_values = Scenario.new()
+	return Scenario.new(json.get("main_dialog_piece",default_values.main_dialog_piece), json.get("choices", default_values.choices), json.get("reveal",default_values.reveal), json.get("imageaddress", default_values.imageAddress), json.get("sendername", default_values.senderName))
 
 
 #Main_Dialog_Piece : The piece that is displayed initially. #Choices : The choices the user can make. #Reveal: How long in seconds for the outcome to be shown.
-func _init(main_dialog_piece: String = "????????", choices: Dictionary = {}, reveal: int = -1):
+func _init(main_dialog_piece: String = "????????", choices: Dictionary = {}, reveal: int = -1, imageAddress: String = "res://graphics/dialogSystem/mysteriousIcon.png", senderName: String = "??????"):
 	self.main_dialog_piece = main_dialog_piece
 	self.choices = choices
 	self.reveal = reveal
 	self.outcomeStats = {}
-	
+	self.imageAddress = imageAddress
+	self.senderName = senderName
 	
 
 

@@ -123,3 +123,18 @@ focus_mode = 0
 text = "Decision 1"
 flat = true
 alignment = 0
+
+[node name="closeIndicator" type="RichTextLabel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.813
+anchor_top = 0.79
+anchor_right = 0.982
+anchor_bottom = 0.938
+offset_left = -0.512573
+offset_top = 0.0174255
+offset_right = -0.395264
+offset_bottom = -0.0704498
+text = "Click anywhere to close."
+fit_content = true

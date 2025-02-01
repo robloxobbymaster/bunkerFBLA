@@ -9,7 +9,7 @@ signal decisionMade
 var shown_anchor: float = 0
 @onready var hidden_anchor: float = size.y
 var target_anchor: float = hidden_anchor #THIS IS FOR TOP ANCHOR
-var queue = [];
+
 
 func _show() -> int:
 	target_anchor = shown_anchor
@@ -17,12 +17,10 @@ func _show() -> int:
 	return 1
 
 func _hide():
-	if queue.size() == 0:
-		target_anchor = hidden_anchor
+	target_anchor = hidden_anchor
 	
 
 func display(text: String = "....", displayName: String = "?????", icon: Resource = load("res://graphics/dialogSystem/mysteriousIcon.png"), closeOnDialogFinish: bool = true, typingSpeed: float = 0.1) -> int:
-	queue.append(1)
 	_show()	
 	%Dialog.text = ""
 	
@@ -38,7 +36,7 @@ func display(text: String = "....", displayName: String = "?????", icon: Resourc
 		AudioManager.play(AudioManager.SoundIds.DIALOG)
 	
 	if closeOnDialogFinish:
-		await get_tree().create_timer(3).timeout
+		await get_tree().create_timer(1.5).timeout
 		_hide()
 	
 
