@@ -68,10 +68,22 @@ func determineOutcome(key: String) -> String:
 		
 		GameManager[stat] += adderStat
 	
+	var GAINED: Array[String] = []
+	var LOST: Array[String] = []
+
 	for stat in self.outcomeStats:
-		print(stat)
-	
-	return random_outcome.MSG
+		var value = self.outcomeStats[stat]
+		if value > 0:
+			GAINED.append("%d %s" % [value, stat.to_lower()])
+		elif value < 0:
+			LOST.append("%d %s" % [value, stat.to_lower()])
+			
+		if GAINED.size() < 1: GAINED.append("nothing")
+		if LOST.size() < 1: LOST.append("nothing")
+		
+			
+			
+	return random_outcome.MSG + ("\n\nGained %s" % ", ".join(GAINED)) + ("\nLost %s" % ", ".join(LOST))
 	#DialogSys.display(random_outcome["msg"])
 
 func parseAudio(triggerArray: Array[String]) -> void:
