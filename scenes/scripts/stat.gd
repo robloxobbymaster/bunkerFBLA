@@ -6,13 +6,13 @@ class_name statParent
 		degration = value
 
 @export var val: float = 100:
-	set(value):
-		val = value
+	set(s):
+		val = s
 		var tween = create_tween()
-		tween.tween_property($".", "value", value, 1)
+		value = val
 
 func _process(_delta: float) -> void:
-	$".".value = val
+	pass
 	
 
 func _on_degration_timer_timeout() -> void:

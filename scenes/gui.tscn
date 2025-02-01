@@ -4,8 +4,65 @@
 
 [node name="GUI" type="CanvasLayer"]
 
-[node name="TextureProgressBar" parent="." instance=ExtResource("1_ehndq")]
-offset_left = 56.0
-offset_top = -104.0
-offset_right = 56.0
-offset_bottom = -74.0
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 40.0
+offset_top = 440.0
+offset_right = 408.0
+offset_bottom = 584.0
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="healthDiv" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="healthTag" type="RichTextLabel" parent="VBoxContainer/healthDiv"]
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "[b]Health:[/b]"
+fit_content = true
+
+[node name="Health" parent="VBoxContainer/healthDiv" instance=ExtResource("1_ehndq")]
+unique_name_in_owner = true
+layout_mode = 2
+tint_under = Color(0.376412, 0.173802, 0, 1)
+tint_over = Color(0, 0, 0, 1)
+tint_progress = Color(0.720872, 0.203779, 9.62615e-08, 1)
+
+[node name="hungerDiv" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="hungerTag" type="RichTextLabel" parent="VBoxContainer/hungerDiv"]
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "[b]Hunger:[/b]"
+fit_content = true
+
+[node name="Hunger" parent="VBoxContainer/hungerDiv" instance=ExtResource("1_ehndq")]
+unique_name_in_owner = true
+layout_mode = 2
+tint_under = Color(0.399857, 0.226924, 9.62615e-08, 1)
+tint_over = Color(0, 0, 0, 1)
+tint_progress = Color(0.895494, 0.489654, 0.25434, 1)
+
+[node name="thirstDiv" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="thirstTag" type="RichTextLabel" parent="VBoxContainer/thirstDiv"]
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "[b]Thirst:[/b]"
+fit_content = true
+
+[node name="Thirst" parent="VBoxContainer/thirstDiv" instance=ExtResource("1_ehndq")]
+unique_name_in_owner = true
+layout_mode = 2
+tint_under = Color(2.02149e-06, 0.302607, 0.403821, 1)
+tint_over = Color(0, 0, 0, 1)
+tint_progress = Color(0.322607, 0.677553, 1, 1)
