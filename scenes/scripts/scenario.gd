@@ -22,11 +22,13 @@ Choices:
 		{ MSG : "Outcome msg", STATS: {
 			HEALTH = [-100,-5],
 		}, TRIGGERS: ["eat"],
+		CALLABLES
 
 		
 		
 		},
 		TRIGGERS: ["beep"],
+		CALLABLES: ["kill"]
 	]
 	}
 """
@@ -90,6 +92,10 @@ func determineOutcome(key: String) -> String:
 	return random_outcome.MSG + ("\n\nGained %s." % ", ".join(GAINED)) + ("\nLost %s." % ", ".join(LOST))
 	#DialogSys.display(random_outcome["msg"])
 
-func parseAudio(triggerArray: Array[String]) -> void:
+static func parseAudio(triggerArray: Array[String]) -> void:
 	for trigger in triggerArray:
 		AudioManager.play(AudioManager.SoundIds[trigger.to_upper()])
+
+static func parseCallables(callableArray: Array[String]) -> void:
+	for callable in callableArray:
+		GameManager[callable].call()
