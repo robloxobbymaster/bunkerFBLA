@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpj7jkscrcgy6"]
+
+[ext_resource type="PackedScene" uid="uid://qrdykj1xf2hr" path="res://scenes/stat_parent.tscn" id="1_ehndq"]
+
+[node name="GUI" type="CanvasLayer"]
+
+[node name="TextureProgressBar" parent="." instance=ExtResource("1_ehndq")]
+offset_left = 56.0
+offset_top = -104.0
+offset_right = 56.0
+offset_bottom = -74.0

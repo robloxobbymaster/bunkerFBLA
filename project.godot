@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 
 AudioManager="*res://scenes/AudioManager.tscn"
 GameManager="*res://scenes/GameManager.tscn"
+GUI="*res://scenes/gui.tscn"
 
 [display]
 

@@ -1,18 +1,19 @@
 extends TextureProgressBar
 class_name statParent
 
-@export var degration: float:
+#UNITS PER SEC
+@export var degration: float = 1:
 	set(value):
 		degration = value
 
-@export var val: int:
-	set(value):
-		val = value
-		var tween = create_tween()
-		tween.tween_property($".", "value", value, 1)
+@export var val: float = 100:
+	set(s):
+		val = s
+		value = val
 
 func _process(_delta: float) -> void:
-	$".".value = val
+	pass
+	
 	
 
 func _on_degration_timer_timeout() -> void:
