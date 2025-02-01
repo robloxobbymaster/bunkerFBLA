@@ -24,9 +24,10 @@ Choices:
 			HEALTH = [-100,-5],
 		}, TRIGGERS: ["eat"],
 
-		TRIGGERS: ["beep"],
 		
-		}
+		
+		},
+		TRIGGERS: ["beep"],
 	]
 	}
 """
@@ -45,15 +46,28 @@ func _init(main_dialog_piece: String = "????????", choices: Dictionary = {}, rev
 	self.main_dialog_piece = main_dialog_piece
 	self.choices = choices
 	self.reveal = reveal
+	self.outcomeStats = []
+	
 	
 
 
 func determineOutcome(key: String) -> String:
 	var outcomes: Array = self.choices.get(key).OUTCOMES
 	var random_outcome: Dictionary = outcomes.pick_random()
+	
+	parseAudio(random_outcome.get("TRIGGERS",[]))
+	
 	for stat in random_outcome.STATS.keys():
 		var range: Array = random_outcome.STATS.keys().get(stat)
-		GameManager[stat] += (randi() % (range[1]-range[0]+1) + range[0])
+		var adderStat: int =  (randi() % (range[1]-range[0]+1) + range[0])
+		
+		self.outcomeStats.append(adderStat)
+		
+		GameManager[stat] += adderStat
 	
 	return random_outcome.MSG
 	#DialogSys.display(random_outcome["msg"])
+
+func parseAudio(triggerArray: Array[String]) -> void:
+	for trigger in triggerArray:
+		AudioManager.play(AudioManager.SoundIds[trigger.to_upper()])
