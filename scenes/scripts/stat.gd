@@ -1,7 +1,7 @@
 extends TextureProgressBar
 class_name statParent
 
-@export var degration: float = 1:
+@export var degration: float = 0.75:
 	set(value):
 		degration = value
 

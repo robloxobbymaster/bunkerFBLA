@@ -21,7 +21,7 @@ func _hide():
 		target_anchor = hidden_anchor
 	
 
-func display(text: String = "....", displayName: String = "?????", icon: Resource = load("res://graphics/dialogSystem/mysteriousIcon.png"), closeOnDialogFinish: bool = true, typingSpeed: float = 0.15) -> int:
+func display(text: String = "....", displayName: String = "?????", icon: Resource = load("res://graphics/dialogSystem/mysteriousIcon.png"), closeOnDialogFinish: bool = true, typingSpeed: float = 0.1) -> int:
 	queue.append(1)
 	_show()	
 	%Dialog.text = ""
@@ -45,7 +45,7 @@ func display(text: String = "....", displayName: String = "?????", icon: Resourc
 	
 	return 0
 
-func display_scenario(scenario: Scenario, displayName: String = "?????", icon: Resource = load("res://graphics/dialogSystem/mysteriousIcon.png"), typingSpeed: float = 0.15) -> int:
+func display_scenario(scenario: Scenario, displayName: String = "?????", icon: Resource = load("res://graphics/dialogSystem/mysteriousIcon.png"), typingSpeed: float = 0.1) -> int:
 	%Hover.hide()
 	
 	var db := false
