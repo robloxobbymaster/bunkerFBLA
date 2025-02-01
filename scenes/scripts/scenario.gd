@@ -35,6 +35,7 @@ Choices:
 var main_dialog_piece: String
 var choices : Dictionary
 var reveal: int
+var outcomeStats: Dictionary
 
 #to initialize the class from JSON object
 static func from_json(json: Dictionary) -> Scenario:
@@ -46,24 +47,29 @@ func _init(main_dialog_piece: String = "????????", choices: Dictionary = {}, rev
 	self.main_dialog_piece = main_dialog_piece
 	self.choices = choices
 	self.reveal = reveal
-	self.outcomeStats = []
+	self.outcomeStats = {}
 	
 	
 
 
 func determineOutcome(key: String) -> String:
-	var outcomes: Array = self.choices.get(key).OUTCOMES
+	var outcomes: Array = self.choices.get(key)
 	var random_outcome: Dictionary = outcomes.pick_random()
 	
-	parseAudio(random_outcome.get("TRIGGERS",[]))
+	var stringArr: Array[String] = []
+	
+	parseAudio(random_outcome.get("TRIGGERS",stringArr))
 	
 	for stat in random_outcome.STATS.keys():
-		var range: Array = random_outcome.STATS.keys().get(stat)
+		var range: Array = random_outcome.STATS.get(stat)
 		var adderStat: int =  (randi() % (range[1]-range[0]+1) + range[0])
 		
-		self.outcomeStats.append(adderStat)
+		self.outcomeStats[stat] = adderStat
 		
 		GameManager[stat] += adderStat
+	
+	for stat in self.outcomeStats:
+		print(stat)
 	
 	return random_outcome.MSG
 	#DialogSys.display(random_outcome["msg"])

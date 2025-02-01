@@ -1,66 +1,71 @@
-[gd_scene load_steps=2 format=3 uid="uid://dpj7jkscrcgy6"]
+[gd_scene load_steps=3 format=3 uid="uid://dpj7jkscrcgy6"]
 
+[ext_resource type="Script" path="res://scenes/scripts/gui.gd" id="1_dwopd"]
 [ext_resource type="PackedScene" uid="uid://qrdykj1xf2hr" path="res://scenes/stat_parent.tscn" id="1_ehndq"]
 
 [node name="GUI" type="CanvasLayer"]
+script = ExtResource("1_dwopd")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-offset_left = 40.0
-offset_top = 440.0
-offset_right = 408.0
-offset_bottom = 584.0
+[node name="Stats" type="VBoxContainer" parent="."]
+anchors_preset = -1
+anchor_top = 0.099
+anchor_right = 0.319
+anchor_bottom = 0.321
+offset_top = -0.152008
+offset_right = 0.511993
+offset_bottom = -0.00801086
 size_flags_horizontal = 3
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="healthDiv" type="HBoxContainer" parent="VBoxContainer"]
+[node name="healthDiv" type="HBoxContainer" parent="Stats"]
 layout_mode = 2
 alignment = 1
 
-[node name="healthTag" type="RichTextLabel" parent="VBoxContainer/healthDiv"]
+[node name="healthTag" type="RichTextLabel" parent="Stats/healthDiv"]
 layout_mode = 2
 size_flags_horizontal = 3
 bbcode_enabled = true
 text = "[b]Health:[/b]"
 fit_content = true
 
-[node name="Health" parent="VBoxContainer/healthDiv" instance=ExtResource("1_ehndq")]
+[node name="Health" parent="Stats/healthDiv" instance=ExtResource("1_ehndq")]
 unique_name_in_owner = true
 layout_mode = 2
 tint_under = Color(0.376412, 0.173802, 0, 1)
 tint_over = Color(0, 0, 0, 1)
 tint_progress = Color(0.720872, 0.203779, 9.62615e-08, 1)
 
-[node name="hungerDiv" type="HBoxContainer" parent="VBoxContainer"]
+[node name="hungerDiv" type="HBoxContainer" parent="Stats"]
 layout_mode = 2
 alignment = 1
 
-[node name="hungerTag" type="RichTextLabel" parent="VBoxContainer/hungerDiv"]
+[node name="hungerTag" type="RichTextLabel" parent="Stats/hungerDiv"]
 layout_mode = 2
 size_flags_horizontal = 3
 bbcode_enabled = true
 text = "[b]Hunger:[/b]"
 fit_content = true
 
-[node name="Hunger" parent="VBoxContainer/hungerDiv" instance=ExtResource("1_ehndq")]
+[node name="Hunger" parent="Stats/hungerDiv" instance=ExtResource("1_ehndq")]
 unique_name_in_owner = true
 layout_mode = 2
 tint_under = Color(0.399857, 0.226924, 9.62615e-08, 1)
 tint_over = Color(0, 0, 0, 1)
 tint_progress = Color(0.895494, 0.489654, 0.25434, 1)
 
-[node name="thirstDiv" type="HBoxContainer" parent="VBoxContainer"]
+[node name="thirstDiv" type="HBoxContainer" parent="Stats"]
 layout_mode = 2
 alignment = 1
 
-[node name="thirstTag" type="RichTextLabel" parent="VBoxContainer/thirstDiv"]
+[node name="thirstTag" type="RichTextLabel" parent="Stats/thirstDiv"]
 layout_mode = 2
 size_flags_horizontal = 3
 bbcode_enabled = true
 text = "[b]Thirst:[/b]"
 fit_content = true
 
-[node name="Thirst" parent="VBoxContainer/thirstDiv" instance=ExtResource("1_ehndq")]
+[node name="Thirst" parent="Stats/thirstDiv" instance=ExtResource("1_ehndq")]
 unique_name_in_owner = true
 layout_mode = 2
 tint_under = Color(2.02149e-06, 0.302607, 0.403821, 1)

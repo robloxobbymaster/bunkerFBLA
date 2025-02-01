@@ -1,14 +1,13 @@
 extends TextureProgressBar
 class_name statParent
 
-@export var degration: float = 0.5:
+@export var degration: float = 1:
 	set(value):
 		degration = value
 
 @export var val: float = 100:
 	set(s):
 		val = s
-		var tween = create_tween()
 		value = val
 
 func _process(_delta: float) -> void:

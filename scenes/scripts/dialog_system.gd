@@ -17,10 +17,12 @@ func _show() -> int:
 	return 1
 
 func _hide():
-	target_anchor = hidden_anchor
+	if queue.size() == 0:
+		target_anchor = hidden_anchor
 	
 
 func display(text: String = "....", displayName: String = "?????", icon: Resource = load("res://graphics/dialogSystem/mysteriousIcon.png"), closeOnDialogFinish: bool = true, typingSpeed: float = 0.15) -> int:
+	queue.append(1)
 	_show()	
 	%Dialog.text = ""
 	
@@ -44,9 +46,15 @@ func display(text: String = "....", displayName: String = "?????", icon: Resourc
 	return 0
 
 func display_scenario(scenario: Scenario, displayName: String = "?????", icon: Resource = load("res://graphics/dialogSystem/mysteriousIcon.png"), typingSpeed: float = 0.15) -> int:
+	%Hover.hide()
+	
 	var db := false
 	
 	for node in %Decisions.get_children(): node.queue_free()
+
+	
+	await display(scenario.main_dialog_piece, displayName, icon, false, typingSpeed)
+	%Hover.show()
 	for key in scenario.choices.keys():
 		var choice = scenario.choices[key]
 		var choiceBTN: Button = %TEMPLATEBTN.duplicate()
@@ -57,23 +65,44 @@ func display_scenario(scenario: Scenario, displayName: String = "?????", icon: R
 		choiceBTN.pressed.connect(func():
 			if not db:
 				db = true
+
 				await get_tree().create_timer(scenario.reveal).timeout
 				display(scenario.determineOutcome(key), displayName, icon, true, typingSpeed)
 				decisionMade.emit()
+				for child in %Decisions.get_children(): child.queue_free()
+				%Hover.hide()
 			)
 		%Decisions.add_child(choiceBTN)
 		choiceBTN.show()
 	
-	display(scenario.main_dialog_piece, displayName, icon, false, typingSpeed)
+	
+	
 	
 	await decisionMade
-	_hide()
 	return 0
 
 
 func _ready() -> void:
 	_hide()
-	var x = Scenario.new("Eat apples?", {"Yes" : {}, "No": {}})
+	var x = Scenario.from_json({
+	"main_dialog_piece" : "A guy walks up and offers some beans. Do you take them?",
+	"reveal" : 0,
+	"choices" : {
+		"Yes" : [{
+			"MSG" : "The beans tasted good.",
+			"STATS" : {
+				"HEALTH" : [5,20],
+				"HUNGER" : [50,50]
+			}
+		}],
+		"No" : [{
+			"MSG" : "The guy shot u.",
+			"STATS" : {
+				"HEALTH" : [-30, -5]
+			}
+		}]
+	}
+})
 	display_scenario(x)
 
 	
