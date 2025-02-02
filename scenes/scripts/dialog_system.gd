@@ -43,15 +43,17 @@ func display(text: String = "....", displayName: String = "?????", icon: Resourc
 	
 	return 0
 
-func display_scenario(scenario: Scenario, displayName: String = "?????", icon: Resource = load("res://graphics/dialogSystem/mysteriousIcon.png"), typingSpeed: float = 0.1) -> int:
+func display_scenario(scenario: Scenario, typingSpeed: float = 0.1) -> int:
 	%Hover.hide()
+	
+	var icon = load(scenario.imageAddress)
 	
 	var db := false
 	
 	for node in %Decisions.get_children(): node.queue_free()
 
 	
-	await display(scenario.main_dialog_piece, displayName, icon, false, typingSpeed)
+	await display(scenario.main_dialog_piece, scenario.senderName, icon, false, typingSpeed)
 	%Hover.show()
 	for key in scenario.choices.keys():
 		var choice = scenario.choices[key]
@@ -65,7 +67,7 @@ func display_scenario(scenario: Scenario, displayName: String = "?????", icon: R
 				db = true
 
 				await get_tree().create_timer(scenario.reveal).timeout
-				display(scenario.determineOutcome(key), displayName, icon, true, typingSpeed)
+				display(scenario.determineOutcome(key), scenario.senderName, icon, true, typingSpeed)
 				decisionMade.emit()
 				for child in %Decisions.get_children(): child.queue_free()
 				%Hover.hide()
