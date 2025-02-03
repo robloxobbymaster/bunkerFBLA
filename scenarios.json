@@ -1,11 +1,61 @@
 {
   "SCENARIOS" : [
-
 	{
-	  "main_dialog_piece": null
-
-
-	}
+	"main_dialog_piece" : "A guy walks up and offers some beans. Do you take them?",
+		"reveal" : 0,
+		"choices" : {
+			"Yes" : [{
+				"MSG" : "The beans tasted good.",
+				"STATS" : {
+					"HEALTH" : [5,20],
+					"HUNGER" : [50,50]
+				}
+			}],
+			"No" : [{
+				"MSG" : "The guy shot u.",
+				"STATS" : {
+					"HEALTH" : [-30, -5]
+				}
+			}]
+		}
+	},
+	
+	{
+		"main_dialog_piece" : "A survivor knocks on your door. They say they're wounded. Do you let them in?",
+		"reveal" : 0,
+		"choices" : {
+			"Yes" : [{
+				"MSG" : "They eat your food and leave.",
+				"STATS" : {
+					"HUNGER" : [-30, -20],
+					"THIRST" : [-10, -5]
+				}
+			}],
+			"No" : [{
+				"MSG" : "They leave",
+			}]
+		}
+	},
+	
+	{
+		"main_dialog_piece" : "Intruders violently hit your door. They demand food and water. What will you do?",
+		"reveal" : 0,
+		"choices" : {
+			"Prepare to fight" : [{
+				"MSG" : "A fight breaks out...",
+				"STATS" : {
+					"HEALTH" : [-20, 0],
+				}
+			}],
+			"Give them what they want" : [{
+				"MSG" : "You give them your valueable resources and they leave",
+				"STATS" : {
+					"HUNGER" : [-20, -10],
+					"THIRST" : [-20, -10]
+				}
+			}]
+		}
+	},
 
   
   
