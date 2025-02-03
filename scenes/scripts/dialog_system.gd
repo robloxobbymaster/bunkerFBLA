@@ -104,7 +104,6 @@ func load_json_file(filePath : String) -> Dictionary:
 func _ready() -> void:
 	_hide()
 	var random_scenario: Dictionary = parsed_scenarios["SCENARIOS"].pick_random()
-	print(random_scenario)
 	var x = Scenario.from_json(random_scenario)
 	display_scenario(x)
 
