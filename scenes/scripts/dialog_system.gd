@@ -1,5 +1,8 @@
 extends NinePatchRect
 
+var scenarios_json = "res://scenarios.json"
+var parsed_scenarios: Dictionary = load_json_file(scenarios_json)
+
 const SPEED = 5
 
 signal finishedLerp
@@ -81,28 +84,28 @@ func display_scenario(scenario: Scenario, typingSpeed: float = 0.1) -> int:
 	await decisionMade
 	return 0
 
+#copied function from a video to load json into a dictionary
+func load_json_file(filePath : String) -> Dictionary:
+	if FileAccess.file_exists(filePath):
+		
+		var dataFile = FileAccess.open(filePath, FileAccess.READ)
+		var parsedResult = JSON.parse_string(dataFile.get_as_text())
+		
+		if parsedResult is Dictionary:
+			return parsedResult
+		else:
+			print("Error reading file")
+	
+	else:
+		print("File doesn't exist!")
+		
+	return {}
 
 func _ready() -> void:
 	_hide()
-	var x = Scenario.from_json({
-	"main_dialog_piece" : "A guy walks up and offers some beans. Do you take them?",
-	"reveal" : 0,
-	"choices" : {
-		"Yes" : [{
-			"MSG" : "The beans tasted good.",
-			"STATS" : {
-				"HEALTH" : [5,20],
-				"HUNGER" : [50,50]
-			}
-		}],
-		"No" : [{
-			"MSG" : "The guy shot u.",
-			"STATS" : {
-				"HEALTH" : [-30, -5]
-			}
-		}]
-	}
-})
+	var random_scenario: Dictionary = parsed_scenarios["SCENARIOS"].pick_random()
+	print(random_scenario)
+	var x = Scenario.from_json(random_scenario)
 	display_scenario(x)
 
 	

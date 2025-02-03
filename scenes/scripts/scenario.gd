@@ -68,7 +68,7 @@ func determineOutcome(key: String) -> String:
 	
 	for stat in random_outcome.STATS.keys():
 		var range: Array = random_outcome.STATS.get(stat)
-		var adderStat: int =  (randi() % (range[1]-range[0]+1) + range[0])
+		var adderStat: int =  (randi() % (int(range[1])-int(range[0])+1) + int(range[0]))
 		
 		self.outcomeStats[stat] = adderStat
 		

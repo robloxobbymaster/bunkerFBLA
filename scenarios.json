@@ -2,23 +2,23 @@
   "SCENARIOS" : [
 	{
 	"main_dialog_piece" : "A guy walks up and offers some beans. Do you take them?",
-		"reveal" : 0,
-		"choices" : {
-			"Yes" : [{
-				"MSG" : "The beans tasted good.",
-				"STATS" : {
-					"HEALTH" : [5,20],
-					"HUNGER" : [50,50]
-				}
-			}],
-			"No" : [{
-				"MSG" : "The guy shot u.",
-				"STATS" : {
-					"HEALTH" : [-30, -5]
-				}
-			}]
-		}
-	},
+	"reveal" : 0,
+	"choices" : {
+		"Yes" : [{
+			"MSG" : "The beans tasted good.",
+			"STATS" : {
+				"HEALTH" : [5,20],
+				"HUNGER" : [50,50]
+			}
+		}],
+		"No" : [{
+			"MSG" : "The guy shot u.",
+			"STATS" : {
+				"HEALTH" : [-30, -5]
+			}
+		}]
+	}
+},
 	
 	{
 		"main_dialog_piece" : "A survivor knocks on your door. They say they're wounded. Do you let them in?",
