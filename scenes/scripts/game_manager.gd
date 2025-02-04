@@ -3,6 +3,8 @@ extends Node
 @export var SCORE: int = 0
 
 #called every 2 seconds
+signal lights_out
+
 
 @export var MIN_DEGRATION: float = 0.5 #min
 @export var MAX_DEGRATION: float = 2 # max
@@ -62,6 +64,7 @@ func _on_degration_timer_timeout() -> void:
 
 
 func _on_scenario_timer_timeout() -> void:
+	lights_out.emit()
 	if not isInScenario and not isInMinigame:
 		var scenario: Scenario = Scenario.from_json(SCENARIOS.pick_random())
 		await DialogSystem.display_scenario(scenario)
