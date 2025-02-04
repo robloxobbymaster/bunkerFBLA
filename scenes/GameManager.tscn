@@ -8,4 +8,10 @@ script = ExtResource("1_566pm")
 [node name="DegrationTimer" type="Timer" parent="."]
 autostart = true
 
+[node name="ScenarioTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
 [connection signal="timeout" from="DegrationTimer" to="." method="_on_degration_timer_timeout"]
+[connection signal="timeout" from="ScenarioTimer" to="." method="_on_scenario_timer_timeout"]

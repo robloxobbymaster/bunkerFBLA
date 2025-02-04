@@ -1,7 +1,6 @@
 extends NinePatchRect
 
 var scenarios_json = "res://scenarios.json"
-var parsed_scenarios: Dictionary = load_json_file(scenarios_json)
 
 const SPEED = 5
 
@@ -47,6 +46,10 @@ func display(text: String = "....", displayName: String = "?????", icon: Resourc
 	return 0
 
 func display_scenario(scenario: Scenario, typingSpeed: float = 0.1) -> int:
+	print(scenario.main_dialog_piece)
+	if GameManager.isInScenario: 
+		return 0
+	GameManager.isInScenario = true
 	%Hover.hide()
 	
 	var icon = load(scenario.imageAddress)
@@ -82,30 +85,13 @@ func display_scenario(scenario: Scenario, typingSpeed: float = 0.1) -> int:
 	
 	
 	await decisionMade
+	GameManager.isInScenario = false
 	return 0
 
-#copied function from a video to load json into a dictionary
-func load_json_file(filePath : String) -> Dictionary:
-	if FileAccess.file_exists(filePath):
-		
-		var dataFile = FileAccess.open(filePath, FileAccess.READ)
-		var parsedResult = JSON.parse_string(dataFile.get_as_text())
-		
-		if parsedResult is Dictionary:
-			return parsedResult
-		else:
-			print("Error reading file")
-	
-	else:
-		print("File doesn't exist!")
-		
-	return {}
+
 
 func _ready() -> void:
 	_hide()
-	var random_scenario: Dictionary = parsed_scenarios["SCENARIOS"].pick_random()
-	var x = Scenario.from_json(random_scenario)
-	display_scenario(x)
 
 	
 	
