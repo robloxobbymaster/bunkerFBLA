@@ -4,3 +4,8 @@
 
 [node name="GameManager" type="Node"]
 script = ExtResource("1_566pm")
+
+[node name="DegrationTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="DegrationTimer" to="." method="_on_degration_timer_timeout"]
