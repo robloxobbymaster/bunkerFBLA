@@ -47,7 +47,8 @@ func load_json_file(filePath : String) -> Dictionary:
 		
 	return {}
 	
-
+func _process(delta: float) -> void:
+	TIME_ELAPSED+=delta
 
 
 func _on_degration_timer_timeout() -> void:

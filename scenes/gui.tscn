@@ -9,13 +9,13 @@ script = ExtResource("1_dwopd")
 [node name="Stats" type="VBoxContainer" parent="."]
 anchors_preset = -1
 anchor_left = 0.014
-anchor_top = 0.025
+anchor_top = 0.037
 anchor_right = 0.34
-anchor_bottom = 0.222
+anchor_bottom = 0.258
 offset_left = -0.128
-offset_top = 7.8
+offset_top = 0.0240002
 offset_right = 0.320007
-offset_bottom = 23.144
+offset_bottom = -0.184006
 size_flags_horizontal = 3
 theme_override_constants/separation = 10
 alignment = 1
