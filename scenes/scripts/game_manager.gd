@@ -1,7 +1,11 @@
 extends Node
 
 @export var SCORE: int = 0
-@export var DEGRATION: float = 1 #per second
+
+#called every 2 seconds
+
+@export var MIN_DEGRATION: float = 0.5 #min
+@export var MAX_DEGRATION: float = 2 # max
 
 @export var isInScenario: bool = false
 
@@ -42,9 +46,9 @@ func load_json_file(filePath : String) -> Dictionary:
 
 
 func _on_degration_timer_timeout() -> void:
-	HEALTH-=DEGRATION
-	HUNGER-=DEGRATION
-	THIRST-=DEGRATION
+	HEALTH-= randi_range(MIN_DEGRATION, MAX_DEGRATION)
+	HUNGER-= randi_range(MIN_DEGRATION, MAX_DEGRATION)
+	THIRST-= randi_range(MIN_DEGRATION, MAX_DEGRATION)
 	$DegrationTimer.start()
 
 

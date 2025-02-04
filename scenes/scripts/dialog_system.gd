@@ -46,7 +46,7 @@ func display(text: String = "....", displayName: String = "?????", icon: Resourc
 	return 0
 
 func display_scenario(scenario: Scenario, typingSpeed: float = 0.1) -> int:
-	print(scenario.main_dialog_piece)
+
 	if GameManager.isInScenario: 
 		return 0
 	GameManager.isInScenario = true

@@ -6,6 +6,7 @@
 script = ExtResource("1_566pm")
 
 [node name="DegrationTimer" type="Timer" parent="."]
+wait_time = 2.0
 autostart = true
 
 [node name="ScenarioTimer" type="Timer" parent="."]
