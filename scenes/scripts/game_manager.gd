@@ -24,6 +24,11 @@ extends Node
 		THIRST = value
 		GUI.reapplyValues()
 
+@export var TIME_ELAPSED: float = 0.0:
+	set(value):
+		TIME_ELAPSED = value
+		GUI.reapplyValues()
+
 @onready var SCENARIOS: Array = load_json_file("res://scenarios.json")["SCENARIOS"]
 #copied function from a video to load json into a dictionary
 func load_json_file(filePath : String) -> Dictionary:

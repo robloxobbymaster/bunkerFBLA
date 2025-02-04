@@ -5,3 +5,4 @@ func reapplyValues() -> void:
 	%Health.value = GameManager.HEALTH
 	%Hunger.value = GameManager.HUNGER
 	%Thirst.value = GameManager.THIRST
+	%Time.text = "[b]Time: %.2f[/b]" % GameManager.TIME_ELAPSED 
