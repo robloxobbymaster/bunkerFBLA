@@ -1,17 +1,17 @@
 extends Node
 
 @export var SCORE: int = 0
-@export var HEALTH: int = GUI.HEALTH.val:
+@export var HEALTH: int = 100:
 	set(value):
 		HEALTH = value
-		GUI.HEALTH.val = value
+		GUI.reapplyValues()
 		
-@export var HUNGER: int = GUI.HUNGER.val:
+@export var HUNGER: int = 100:
 	set(value):
 		HUNGER = value
-		GUI.HUNGER.val = value
+		GUI.reapplyValues()
 		
-@export var THIRST: int = GUI.THIRST.val:
+@export var THIRST: int = 100:
 	set(value):
 		THIRST = value
-		GUI.THIRST.val = value
+		GUI.reapplyValues()

@@ -65,7 +65,7 @@ func determineOutcome(key: String) -> String:
 	var stringArr: Array[String] = []
 	
 	parseAudio(random_outcome.get("TRIGGERS",stringArr))
-	
+	random_outcome.STATS = random_outcome.get("STATS",{})
 	for stat in random_outcome.STATS.keys():
 		var range: Array = random_outcome.STATS.get(stat)
 		var adderStat: int =  (randi() % (int(range[1])-int(range[0])+1) + int(range[0]))
@@ -84,8 +84,8 @@ func determineOutcome(key: String) -> String:
 		elif value < 0:
 			LOST.append("%d %s" % [-1*value, stat.to_lower()])
 			
-		if GAINED.size() < 1: GAINED.append("nothing")
-		if LOST.size() < 1: LOST.append("nothing")
+	if GAINED.size() < 1: GAINED.append("nothing")
+	if LOST.size() < 1: LOST.append("nothing")
 		
 			
 			

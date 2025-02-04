@@ -1,5 +1,7 @@
 extends CanvasLayer
 
-@onready var HEALTH: statParent = %Health
-@onready var HUNGER: statParent = %Hunger
-@onready var THIRST: statParent = %Thirst
+
+func reapplyValues() -> void:
+	%Health.value = GameManager.HEALTH
+	%Hunger.value = GameManager.HUNGER
+	%Thirst.value = GameManager.THIRST

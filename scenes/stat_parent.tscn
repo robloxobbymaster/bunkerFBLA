@@ -19,8 +19,3 @@ texture_under = ExtResource("1_6griu")
 texture_over = ExtResource("2_u7r45")
 texture_progress = ExtResource("3_hq8pk")
 script = ExtResource("1_j1c4x")
-
-[node name="DegrationTimer" type="Timer" parent="."]
-autostart = true
-
-[connection signal="timeout" from="DegrationTimer" to="." method="_on_degration_timer_timeout"]
