@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://r5w1i1djqs01"]
+
+[ext_resource type="Texture2D" uid="uid://bxxolf6jkepli" path="res://graphics/background/room.png" id="1_k68qw"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Backdrop" type="Sprite2D" parent="."]
+z_index = -99
+position = Vector2(574.5, 324)
+scale = Vector2(0.845534, 0.84375)
+texture = ExtResource("1_k68qw")
