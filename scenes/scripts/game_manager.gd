@@ -8,6 +8,7 @@ extends Node
 @export var MAX_DEGRATION: float = 2 # max
 
 @export var isInScenario: bool = false
+@export var isInMinigame: bool = false
 
 @export var HEALTH: int = 100:
 	set(value):
@@ -48,18 +49,36 @@ func load_json_file(filePath : String) -> Dictionary:
 	return {}
 	
 func _process(delta: float) -> void:
-	TIME_ELAPSED+=delta
+	if not isInMinigame:
+		TIME_ELAPSED+=delta
 
 
 func _on_degration_timer_timeout() -> void:
-	HEALTH-= randi_range(MIN_DEGRATION, MAX_DEGRATION)
-	HUNGER-= randi_range(MIN_DEGRATION, MAX_DEGRATION)
-	THIRST-= randi_range(MIN_DEGRATION, MAX_DEGRATION)
+	if not isInMinigame:
+		HEALTH-= randi_range(MIN_DEGRATION, MAX_DEGRATION)
+		HUNGER-= randi_range(MIN_DEGRATION, MAX_DEGRATION)
+		THIRST-= randi_range(MIN_DEGRATION, MAX_DEGRATION)
 	$DegrationTimer.start()
 
 
 func _on_scenario_timer_timeout() -> void:
-	if not isInScenario:
+	if not isInScenario and not isInMinigame:
 		var scenario: Scenario = Scenario.from_json(SCENARIOS.pick_random())
 		await DialogSystem.display_scenario(scenario)
 		$ScenarioTimer.start()
+		
+		
+#Settings
+var BRIGHTNESS: float = 1:
+	set(value):
+		BRIGHTNESS = value
+		$WorldEnvironment.adjustment_brightness = BRIGHTNESS
+var CONTRAST: float = 1:
+	set(value):
+		CONTRAST = value
+		$WorldEnvironment.adjustment_contrast = CONTRAST
+		
+var SATURATION: float = 1:
+	set(value):
+		SATURATION = value
+		$WorldEnvironment.adjustment_saturation = SATURATION

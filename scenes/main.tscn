@@ -27,25 +27,35 @@ animations = [{
 [node name="Main" type="Node2D"]
 
 [node name="Backdrop" type="Sprite2D" parent="."]
-modulate = Color(0.0392157, 0.0392157, 0.0392157, 1)
 position = Vector2(574.5, 324)
 scale = Vector2(0.845534, 0.84375)
 texture = ExtResource("1_k68qw")
 
 [node name="Sofa" type="Sprite2D" parent="."]
-modulate = Color(0.0383971, 0.0383972, 0.0383971, 1)
 position = Vector2(581.5, 391.25)
 scale = Vector2(0.839678, 0.866723)
 texture = ExtResource("2_svnow")
 
 [node name="Lightbulb" type="AnimatedSprite2D" parent="."]
-modulate = Color(0.10748, 0.10748, 0.10748, 1)
 position = Vector2(576, 152)
 sprite_frames = SubResource("SpriteFrames_kddhs")
 frame = 2
 
+[node name="InteractBtn" type="Button" parent="Lightbulb"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = -1
+anchor_left = 0.312
+anchor_top = 0.167
+anchor_right = 0.75
+anchor_bottom = 0.518
+offset_left = -127.872
+offset_top = -228.152
+offset_right = -128.0
+offset_bottom = -228.208
+
 [node name="EnvLight" type="PointLight2D" parent="."]
 position = Vector2(604, 328)
 scale = Vector2(6.46875, 4.5)
-energy = 3.95
+energy = 0.0
+blend_mode = 1
 texture = ExtResource("5_ksvvw")
