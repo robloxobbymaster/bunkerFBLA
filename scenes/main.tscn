@@ -1,16 +1,51 @@
-[gd_scene load_steps=3 format=3 uid="uid://r5w1i1djqs01"]
+[gd_scene load_steps=8 format=3 uid="uid://r5w1i1djqs01"]
 
 [ext_resource type="Texture2D" uid="uid://bxxolf6jkepli" path="res://graphics/background/room.png" id="1_k68qw"]
 [ext_resource type="Texture2D" uid="uid://c4d758n586cfe" path="res://graphics/background/couch.png" id="2_svnow"]
+[ext_resource type="Texture2D" uid="uid://h0r6appf8a7r" path="res://graphics/background/lightbulb/LIGHTBULB_ON.png" id="3_65ysg"]
+[ext_resource type="Texture2D" uid="uid://cxdyd158ieyet" path="res://graphics/background/lightbulb/LIGHTBULB_OFF.png" id="4_pg4pv"]
+[ext_resource type="Texture2D" uid="uid://eg8dwgve7g2y" path="res://graphics/lighting/circleLight.png" id="5_ksvvw"]
+[ext_resource type="Texture2D" uid="uid://baxttem5lpojy" path="res://graphics/background/lightbulb/LIGHTBULB_OFF_HIGHLIGHT.png" id="5_moc2r"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kddhs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_65ysg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_pg4pv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_moc2r")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Main" type="Node2D"]
 
 [node name="Backdrop" type="Sprite2D" parent="."]
+modulate = Color(0.0392157, 0.0392157, 0.0392157, 1)
 position = Vector2(574.5, 324)
 scale = Vector2(0.845534, 0.84375)
 texture = ExtResource("1_k68qw")
 
 [node name="Sofa" type="Sprite2D" parent="."]
+modulate = Color(0.0383971, 0.0383972, 0.0383971, 1)
 position = Vector2(581.5, 391.25)
 scale = Vector2(0.839678, 0.866723)
 texture = ExtResource("2_svnow")
+
+[node name="Lightbulb" type="AnimatedSprite2D" parent="."]
+modulate = Color(0.10748, 0.10748, 0.10748, 1)
+position = Vector2(576, 152)
+sprite_frames = SubResource("SpriteFrames_kddhs")
+frame = 2
+
+[node name="EnvLight" type="PointLight2D" parent="."]
+position = Vector2(604, 328)
+scale = Vector2(6.46875, 4.5)
+energy = 3.95
+texture = ExtResource("5_ksvvw")
