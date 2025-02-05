@@ -17,6 +17,7 @@ offset_top = 0.0240002
 offset_right = 0.320007
 offset_bottom = -0.184006
 size_flags_horizontal = 3
+mouse_filter = 2
 theme_override_constants/separation = 10
 alignment = 1
 

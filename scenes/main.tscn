@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://r5w1i1djqs01"]
+[gd_scene load_steps=9 format=3 uid="uid://r5w1i1djqs01"]
 
 [ext_resource type="Script" path="res://scenes/scripts/main.gd" id="1_jc81r"]
 [ext_resource type="Texture2D" uid="uid://bxxolf6jkepli" path="res://graphics/background/room.png" id="1_k68qw"]
@@ -42,9 +42,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_nh0vg"]
-polygon = PackedVector2Array(568, 136, 576, 136, 584, 144, 592, 144, 600, 136, 608, 136, 608, 128, 616, 120, 608, 104, 600, 96, 608, 88, 600, 80, 592, 80, 584, 80, 576, 80, 568, 88, 568, 96, 560, 112, 560, 128)
-
 [node name="Main" type="Node2D"]
 script = ExtResource("1_jc81r")
 
@@ -57,6 +54,14 @@ texture = ExtResource("1_k68qw")
 position = Vector2(581.5, 391.25)
 scale = Vector2(0.839678, 0.866723)
 texture = ExtResource("2_svnow")
+
+[node name="EnvLight" type="PointLight2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(600, 336)
+scale = Vector2(6.46875, 4.5)
+energy = 0.29
+blend_mode = 2
+texture = ExtResource("5_ksvvw")
 
 [node name="Lightbulb" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
@@ -75,18 +80,5 @@ offset_left = -127.872
 offset_top = -228.152
 offset_right = -128.0
 offset_bottom = -228.208
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="Lightbulb"]
-visible = false
-position = Vector2(-576, -152)
-occluder = SubResource("OccluderPolygon2D_nh0vg")
-
-[node name="EnvLight" type="PointLight2D" parent="."]
-unique_name_in_owner = true
-position = Vector2(600, 336)
-scale = Vector2(6.46875, 4.5)
-energy = 0.0
-blend_mode = 1
-texture = ExtResource("5_ksvvw")
 
 [connection signal="frame_changed" from="Lightbulb" to="." method="_on_lightbulb_frame_changed"]

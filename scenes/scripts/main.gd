@@ -2,6 +2,7 @@ extends Node2D
 
 @export var darknessLVL: float = 0.85
 
+var inDarkness: bool = false
 
 func _ready() -> void:
 	GameManager.lights_out.connect(lights_out)
@@ -13,6 +14,7 @@ func lights_out() -> void:
 	%EnvLight.energy = darknessLVL
 	%Lightbulb.play("hover")
 	%Lightbulb.get_node("LightOccluder2D").show()
+	inDarkness = true
 
 
 
