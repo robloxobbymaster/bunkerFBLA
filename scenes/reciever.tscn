@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://oyl8uachrofl"]
+
+[ext_resource type="Texture2D" uid="uid://eg8dwgve7g2y" path="res://graphics/lighting/circleLight.png" id="1_w2j43"]
+[ext_resource type="Script" path="res://scenes/scripts/reciever.gd" id="2_ycu2k"]
+[ext_resource type="PackedScene" uid="uid://c7rfe82vqswu6" path="res://scenes/wire.tscn" id="3_fgt84"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_204o5"]
+radius = 128.236
+
+[node name="Reciever" type="Sprite2D"]
+position = Vector2(679, 364)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("1_w2j43")
+script = ExtResource("2_ycu2k")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_204o5")
+
+[node name="Wire" parent="Area2D" instance=ExtResource("3_fgt84")]
+position = Vector2(393.333, 133.333)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

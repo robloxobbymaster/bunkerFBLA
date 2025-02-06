@@ -2,13 +2,12 @@
 
 [ext_resource type="Script" path="res://scenes/scripts/wire.gd" id="1_x0gnu"]
 [ext_resource type="Texture2D" uid="uid://eg8dwgve7g2y" path="res://graphics/lighting/circleLight.png" id="2_s73vn"]
-[ext_resource type="Texture2D" uid="uid://2xgd0eg6pvil" path="res://graphics/wiring/red_wire.png" id="3_47cpy"]
+[ext_resource type="Texture2D" uid="uid://2xgd0eg6pvil" path="res://graphics/wiring/wire.png" id="3_47cpy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1sfi8"]
 radius = 126.197
 
 [node name="Wire" type="Node2D"]
-modulate = Color(1, 0.25098, 1, 1)
 script = ExtResource("1_x0gnu")
 
 [node name="StartPoint" type="Sprite2D" parent="."]

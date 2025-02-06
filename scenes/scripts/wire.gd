@@ -1,4 +1,4 @@
-extends Node2D
+class_name Wire extends Node2D
 
 
 var is_on: bool = false
@@ -26,6 +26,6 @@ func _input(event: InputEvent) -> void:
 			is_holding = false
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if is_on and is_holding:
 		pos = get_global_mouse_position()
