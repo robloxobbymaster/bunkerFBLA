@@ -1,4 +1,4 @@
-extends Sprite2D
+class_name Reciever extends Sprite2D
 
 @export var connector: Wire
 @export var is_connected: bool = false

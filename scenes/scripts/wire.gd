@@ -1,5 +1,8 @@
 class_name Wire extends Node2D
 
+signal just_moved
+
+var default_position: Vector2 = Vector2(52,16)
 
 var is_on: bool = false
 var is_holding: bool = false
@@ -11,7 +14,8 @@ var is_holding: bool = false
 		if can_move:
 			%Endpoint.global_position = value
 			%Line2D.points[1] = %Line2D.to_local(value)
-
+			just_moved.emit()
+			
 func _on_area_2d_mouse_entered() -> void:
 	is_on = true
 
@@ -25,6 +29,9 @@ func _input(event: InputEvent) -> void:
 			is_holding = true
 		elif event.button_index == 1 and not event.is_pressed():
 			is_holding = false
+			if can_move:
+				move_endpoint(%StartPoint.global_position+Vector2(40,40))
+				
 
 
 func _process(_delta: float) -> void:

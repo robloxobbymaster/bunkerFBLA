@@ -19,7 +19,7 @@ texture = ExtResource("2_s73vn")
 [node name="Endpoint" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 z_index = 1
-position = Vector2(210, 75)
+position = Vector2(87, 31)
 scale = Vector2(0.18, 0.162)
 texture = ExtResource("2_s73vn")
 
@@ -31,7 +31,7 @@ shape = SubResource("CircleShape2D_1sfi8")
 [node name="Line2D" type="Line2D" parent="."]
 unique_name_in_owner = true
 scale = Vector2(3, 3)
-points = PackedVector2Array(0, 0, 69.5201, 24.8286)
+points = PackedVector2Array(0, 0, 29.6667, 11)
 texture = ExtResource("3_47cpy")
 texture_mode = 1
 
