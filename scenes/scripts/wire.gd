@@ -3,13 +3,14 @@ class_name Wire extends Node2D
 
 var is_on: bool = false
 var is_holding: bool = false
+@export var can_move: bool = true
 
 @onready var pos: Vector2 = %Endpoint.global_position:
 	set(value):
 		pos = value
-		%Endpoint.position = value
-		%Line2D.points[1] = %Line2D.to_local(value)
-
+		if can_move:
+			%Endpoint.global_position = value
+			%Line2D.points[1] = %Line2D.to_local(value)
 
 func _on_area_2d_mouse_entered() -> void:
 	is_on = true
@@ -27,5 +28,8 @@ func _input(event: InputEvent) -> void:
 
 
 func _process(_delta: float) -> void:
-	if is_on and is_holding:
+	if is_on and is_holding and can_move:
 		pos = get_global_mouse_position()
+
+func move_endpoint(target_pos: Vector2) -> void:
+	pos = target_pos
