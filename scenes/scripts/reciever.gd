@@ -3,6 +3,7 @@ class_name Reciever extends Sprite2D
 @export var connector: Wire
 @export var is_connected: bool = false
 
+signal connected
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	print("AHH!!")
@@ -14,3 +15,5 @@ func _on_area_2d_area_shape_entered(area_rid: RID, area: Area2D, area_shape_inde
 		wire.move_endpoint(get_node("Area2D").global_position)
 		wire.can_move = false
 		is_connected = true
+		AudioManager.play(AudioManager.SoundIds.WIRE_CLICK)
+		connected.emit()

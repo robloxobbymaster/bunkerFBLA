@@ -10,10 +10,13 @@ var Colors: Array[Color] = [
 	Color.ORANGE,
 ]
 
+var amt_connected: int = 0
+
 @onready var Recievers: Array[Node] = %Recievers.get_children()
 @onready var Wires: Array[Node] = %Wires.get_children()
 
 func refresh() -> void:
+	amt_connected = 0
 	topWire = null
 	Recievers.shuffle()
 	Wires.shuffle()
@@ -33,6 +36,10 @@ func refresh() -> void:
 				topWire.z_index = 0
 			topWire = wire
 			topWire.z_index = 1
+			)
+			
+		reciever.connected.connect(func():
+			amt_connected+=1
 			)
 		
 func _ready() -> void:
