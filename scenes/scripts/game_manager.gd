@@ -22,16 +22,22 @@ signal lights_out
 
 @export var HEALTH: int = 100:
 	set(value):
+		if value >= 100:
+			value = 100
 		HEALTH = value
 		GUI.reapplyValues()
 		
 @export var HUNGER: int = 100:
 	set(value):
+		if value >= 100:
+			value = 100
 		HUNGER = value
 		GUI.reapplyValues()
 		
 @export var THIRST: int = 100:
 	set(value):
+		if value >= 100:
+			value = 100
 		THIRST = value
 		GUI.reapplyValues()
 
