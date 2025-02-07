@@ -27,6 +27,10 @@ DialogSystem="*res://scenes/dialog_system.tscn"
 window/stretch/mode="viewport"
 window/stretch/aspect="ignore"
 
+[gui]
+
+theme/custom_font="res://fonts/ShadowsIntoLight-Regular.ttf"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
