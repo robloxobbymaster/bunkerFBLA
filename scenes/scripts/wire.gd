@@ -30,7 +30,7 @@ func _input(event: InputEvent) -> void:
 		elif event.button_index == 1 and not event.is_pressed():
 			is_holding = false
 			if can_move:
-				move_endpoint(%StartPoint.global_position+Vector2(40,40))
+				reset_endpoint()
 				
 
 
@@ -40,3 +40,13 @@ func _process(_delta: float) -> void:
 
 func move_endpoint(target_pos: Vector2) -> void:
 	pos = target_pos
+
+func reset_endpoint() -> void:
+	move_endpoint(%StartPoint.global_position+Vector2(40,40))
+	
+	
+func rest() -> void:
+	reset_endpoint()
+	can_move = true
+	is_on = false
+	is_holding = false

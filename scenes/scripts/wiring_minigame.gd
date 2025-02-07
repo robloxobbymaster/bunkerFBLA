@@ -1,5 +1,7 @@
 extends Node2D
 
+signal completed
+
 var topWire: Wire
 #All three arrays must be the same size!
 var Colors: Array[Color] = [
@@ -10,14 +12,17 @@ var Colors: Array[Color] = [
 	Color.ORANGE,
 ]
 
-var amt_connected: int = 0
+var amt_connected: int = 0:
+	set(value):
+		amt_connected = value
+		if(amt_connected == Colors.size()):
+			completed.emit()
+			AudioManager.play(AudioManager.SoundIds.SUCCESS_SFX)
 
 @onready var Recievers: Array[Node] = %Recievers.get_children()
 @onready var Wires: Array[Node] = %Wires.get_children()
 
 func refresh() -> void:
-	amt_connected = 0
-	topWire = null
 	Recievers.shuffle()
 	Wires.shuffle()
 	Colors.shuffle()
@@ -44,3 +49,10 @@ func refresh() -> void:
 		
 func _ready() -> void:
 	refresh()
+	
+	
+func rest() -> void:
+	for wire in Wires: wire.rest()
+	for reciever in Recievers: reciever.reset()
+	amt_connected = 0
+	topWire = null
