@@ -24,14 +24,13 @@ func _hide():
 
 func display(text: String = "....", displayName: String = "?????", icon: Resource = load("res://graphics/dialogSystem/mysteriousIcon.png"), closeOnDialogFinish: bool = true, typingSpeed: float = 0.1) -> int:
 	_show()	
-	%Dialog.text = ""
+	%Dialog.text = "[b]"
 	
 	%DisplayName.text = "[center]%s[/center]" % displayName
 	
 	%Icon.texture = icon
 	
 	var splittedText := text.split("")
-	
 	for character in splittedText:
 		%Dialog.text+=character
 		await get_tree().create_timer(typingSpeed/2).timeout

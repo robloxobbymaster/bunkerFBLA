@@ -44,7 +44,7 @@ func reset_endpoint() -> void:
 	move_endpoint(%StartPoint.global_position+Vector2(40,40))
 	
 	
-func rest() -> void:
+func reset() -> void:
 	reset_endpoint()
 	can_move = true
 	is_on = false

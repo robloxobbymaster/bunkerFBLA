@@ -49,6 +49,7 @@ offset_left = 0.109985
 offset_top = -0.127003
 offset_right = -0.0400391
 offset_bottom = -0.0769958
+bbcode_enabled = true
 text = "wlecome "
 scroll_active = false
 

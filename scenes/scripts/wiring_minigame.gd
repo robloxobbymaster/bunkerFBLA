@@ -1,6 +1,19 @@
-extends Node2D
+class_name Wiring_Minigame extends Node2D
 
 signal completed
+
+var shown_pos: Vector2 = Vector2.ZERO
+
+var hidden_pos: Vector2 = Vector2(0,720)
+
+var target_pos: Vector2 = hidden_pos
+
+var SPEED = 8
+
+func show_minigame() -> void: 
+	target_pos = shown_pos
+	refresh()
+func hide_minigame() -> void: target_pos = hidden_pos
 
 var topWire: Wire
 #All three arrays must be the same size!
@@ -16,13 +29,26 @@ var amt_connected: int = 0:
 	set(value):
 		amt_connected = value
 		if(amt_connected == Colors.size()):
-			completed.emit()
-			AudioManager.play(AudioManager.SoundIds.SUCCESS_SFX)
+			GUI.show_completion()
+			await get_tree().create_timer(1.5).timeout
+			GUI.hide_completion()
+			hide_minigame()
+			GameManager.isInMinigame = false
 
 @onready var Recievers: Array[Node] = %Recievers.get_children()
 @onready var Wires: Array[Node] = %Wires.get_children()
 
+
+	
+func reset() -> void:
+	for wire in Wires: wire.reset()
+	for reciever in Recievers: reciever.reset()
+	amt_connected = 0
+	topWire = null
+
 func refresh() -> void:
+	reset()
+	GameManager.isInMinigame = true
 	Recievers.shuffle()
 	Wires.shuffle()
 	Colors.shuffle()
@@ -47,13 +73,12 @@ func refresh() -> void:
 			amt_connected+=1
 			)
 		
+	
+
+
+
+func _process(delta: float) -> void:
+	global_position = lerp(global_position, target_pos, delta*SPEED)
+
 func _ready() -> void:
-	refresh()
-	GameManager.isInMinigame = true
-	
-	
-func rest() -> void:
-	for wire in Wires: wire.rest()
-	for reciever in Recievers: reciever.reset()
-	amt_connected = 0
-	topWire = null
+	show_minigame()

@@ -9,7 +9,8 @@ signal connected
 
 
 func _on_area_2d_area_shape_entered(area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int) -> void:
-	var wire: Wire = area.get_parent().get_parent()
+	var wire= area.get_parent().get_parent()
+	print(wire)
 	if wire == connector:
 		wire.move_endpoint(get_node("Area2D").global_position)
 		wire.can_move = false
@@ -18,6 +19,6 @@ func _on_area_2d_area_shape_entered(area_rid: RID, area: Area2D, area_shape_inde
 		connected.emit()
 
 
-func rest() -> void:
+func reset() -> void:
 	is_connected = false
 	connector = null
