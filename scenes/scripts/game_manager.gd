@@ -10,7 +10,15 @@ signal lights_out
 @export var MAX_DEGRATION: float = 2 # max
 
 @export var isInScenario: bool = false
-@export var isInMinigame: bool = false
+@export var isInMinigame: bool = false:
+	set(value):
+		isInMinigame = value
+		if not value:
+			print("Showing gui")
+			GUI.get_node("Stats").show()
+		else:
+			print("hiding")
+			GUI.get_node("Stats").hide()
 
 @export var HEALTH: int = 100:
 	set(value):

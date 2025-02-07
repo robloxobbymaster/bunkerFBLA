@@ -8,12 +8,12 @@ var hidden_pos: Vector2 = Vector2(0,720)
 
 var target_pos: Vector2 = hidden_pos
 
-var SPEED = 8
-
+var SPEED: int = 8
 func show_minigame() -> void: 
 	target_pos = shown_pos
 	refresh()
-func hide_minigame() -> void: target_pos = hidden_pos
+func hide_minigame() -> void: 
+	target_pos = hidden_pos
 
 var topWire: Wire
 #All three arrays must be the same size!
@@ -31,9 +31,10 @@ var amt_connected: int = 0:
 		if(amt_connected == Colors.size()):
 			GUI.show_completion()
 			await get_tree().create_timer(1.5).timeout
-			GUI.hide_completion()
-			hide_minigame()
+			
+			GUI.hide_completion(12)
 			GameManager.isInMinigame = false
+			hide_minigame()
 
 @onready var Recievers: Array[Node] = %Recievers.get_children()
 @onready var Wires: Array[Node] = %Wires.get_children()
