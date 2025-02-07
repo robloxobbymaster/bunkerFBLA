@@ -1,27 +1,28 @@
 [gd_scene load_steps=5 format=3 uid="uid://c7rfe82vqswu6"]
 
 [ext_resource type="Script" path="res://scenes/scripts/wire.gd" id="1_x0gnu"]
-[ext_resource type="Texture2D" uid="uid://eg8dwgve7g2y" path="res://graphics/lighting/circleLight.png" id="2_s73vn"]
+[ext_resource type="Texture2D" uid="uid://dm36i7h2do2kl" path="res://graphics/lighting/circleWithBorder.png" id="2_eqw17"]
 [ext_resource type="Texture2D" uid="uid://2xgd0eg6pvil" path="res://graphics/wiring/wire.png" id="3_47cpy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1sfi8"]
 radius = 108.895
 
 [node name="Wire" type="Node2D"]
+z_as_relative = false
 script = ExtResource("1_x0gnu")
 
 [node name="StartPoint" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 z_index = 1
 scale = Vector2(0.18, 0.162)
-texture = ExtResource("2_s73vn")
+texture = ExtResource("2_eqw17")
 
 [node name="Endpoint" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 z_index = 1
 position = Vector2(87, 31)
 scale = Vector2(0.18, 0.162)
-texture = ExtResource("2_s73vn")
+texture = ExtResource("2_eqw17")
 
 [node name="Area2D" type="Area2D" parent="Endpoint"]
 

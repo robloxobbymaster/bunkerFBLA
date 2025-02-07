@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c4d758n586cfe" path="res://graphics/background/couch.png" id="2_svnow"]
 [ext_resource type="Texture2D" uid="uid://h0r6appf8a7r" path="res://graphics/background/lightbulb/LIGHTBULB_ON.png" id="3_65ysg"]
 [ext_resource type="Texture2D" uid="uid://cxdyd158ieyet" path="res://graphics/background/lightbulb/LIGHTBULB_OFF.png" id="4_pg4pv"]
-[ext_resource type="Texture2D" uid="uid://eg8dwgve7g2y" path="res://graphics/lighting/circleLight.png" id="5_ksvvw"]
+[ext_resource type="Texture2D" uid="uid://c5g77u610x6wo" path="res://graphics/lighting/circleLight.png" id="5_ksvvw"]
 [ext_resource type="Texture2D" uid="uid://baxttem5lpojy" path="res://graphics/background/lightbulb/LIGHTBULB_OFF_HIGHLIGHT.png" id="5_moc2r"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_kddhs"]

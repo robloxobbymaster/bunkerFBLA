@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5g77u610x6wo"
-path="res://.godot/imported/circleLight.png-eb007a2c829fc14eef6c23726ea73680.ctex"
+uid="uid://dm36i7h2do2kl"
+path="res://.godot/imported/circleWithBorder.png-62f1857abf4300c1e2066e5ccf0a4e12.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/lighting/circleLight.png"
-dest_files=["res://.godot/imported/circleLight.png-eb007a2c829fc14eef6c23726ea73680.ctex"]
+source_file="res://graphics/lighting/circleWithBorder.png"
+dest_files=["res://.godot/imported/circleWithBorder.png-62f1857abf4300c1e2066e5ccf0a4e12.ctex"]
 
 [params]
 

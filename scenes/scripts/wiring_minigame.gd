@@ -37,10 +37,10 @@ func refresh() -> void:
 		wire.modulate = color
 		
 		wire.just_moved.connect(func():
-			if topWire:
+			if topWire != null:
 				topWire.z_index = 0
 			topWire = wire
-			topWire.z_index = 1
+			topWire.z_index = 2
 			)
 			
 		reciever.connected.connect(func():
@@ -49,6 +49,7 @@ func refresh() -> void:
 		
 func _ready() -> void:
 	refresh()
+	GameManager.isInMinigame = true
 	
 	
 func rest() -> void:

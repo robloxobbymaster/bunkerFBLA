@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://oyl8uachrofl"]
 
-[ext_resource type="Texture2D" uid="uid://eg8dwgve7g2y" path="res://graphics/lighting/circleLight.png" id="1_w2j43"]
+[ext_resource type="Texture2D" uid="uid://dm36i7h2do2kl" path="res://graphics/lighting/circleWithBorder.png" id="1_8mxlw"]
 [ext_resource type="Script" path="res://scenes/scripts/reciever.gd" id="2_ycu2k"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_204o5"]
@@ -8,7 +8,7 @@ radius = 62.4829
 
 [node name="Reciever" type="Sprite2D"]
 scale = Vector2(1.25, 1.25)
-texture = ExtResource("1_w2j43")
+texture = ExtResource("1_8mxlw")
 script = ExtResource("2_ycu2k")
 
 [node name="Area2D" type="Area2D" parent="."]

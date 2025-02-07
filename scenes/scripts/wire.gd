@@ -29,15 +29,14 @@ func _input(event: InputEvent) -> void:
 			is_holding = true
 		elif event.button_index == 1 and not event.is_pressed():
 			is_holding = false
-			if can_move:
-				reset_endpoint()
 				
 
 
 func _process(_delta: float) -> void:
 	if is_on and is_holding and can_move:
 		pos = get_global_mouse_position()
-
+	elif can_move:
+		reset_endpoint()
 func move_endpoint(target_pos: Vector2) -> void:
 	pos = target_pos
 
