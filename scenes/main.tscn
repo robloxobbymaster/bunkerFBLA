@@ -58,11 +58,6 @@ position = Vector2(574.5, 324)
 scale = Vector2(0.845534, 0.84375)
 texture = ExtResource("1_k68qw")
 
-[node name="Sofa" type="Sprite2D" parent="."]
-position = Vector2(581.5, 391.25)
-scale = Vector2(0.839678, 0.866723)
-texture = ExtResource("2_svnow")
-
 [node name="EnvLight" type="PointLight2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(600, 336)
@@ -88,5 +83,24 @@ offset_left = -127.872
 offset_top = -228.152
 offset_right = -128.0
 offset_bottom = -228.208
+
+[node name="Locations" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="Locations"]
+position = Vector2(161, 575)
+
+[node name="Marker2D2" type="Marker2D" parent="Locations"]
+position = Vector2(673, 341)
+
+[node name="Marker2D3" type="Marker2D" parent="Locations"]
+position = Vector2(301, 413)
+
+[node name="Marker2D4" type="Marker2D" parent="Locations"]
+position = Vector2(978, 550)
+
+[node name="Sofa" type="Sprite2D" parent="."]
+position = Vector2(581.5, 391.25)
+scale = Vector2(0.839678, 0.866723)
+texture = ExtResource("2_svnow")
 
 [connection signal="frame_changed" from="Lightbulb" to="." method="_on_lightbulb_frame_changed"]
