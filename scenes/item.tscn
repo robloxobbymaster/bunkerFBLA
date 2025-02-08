@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://bpuj8l0b63nxb"]
+[gd_scene load_steps=3 format=3 uid="uid://bpuj8l0b63nxb"]
 
 [ext_resource type="Script" path="res://scenes/scripts/item.gd" id="1_a8nco"]
+[ext_resource type="Texture2D" uid="uid://m8gyqi8cuaxf" path="res://graphics/items/can.png" id="2_0hwd8"]
 
 [node name="Item" type="Node2D"]
 script = ExtResource("1_a8nco")
+icon = ExtResource("2_0hwd8")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Icon" type="Sprite2D" parent="."]
+texture = ExtResource("2_0hwd8")
