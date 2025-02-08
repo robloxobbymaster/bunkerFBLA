@@ -7,9 +7,6 @@ var inDarkness: bool = false
 func _ready() -> void:
 	GameManager.lights_out.connect(lights_out)
 	GameManager.lights_on.connect(lights_on)
-	await get_tree().create_timer(5).timeout
-	GameManager.lights_out.emit()
-	
 	
 func lights_out() -> void:
 	%Lightbulb.play("flicker")

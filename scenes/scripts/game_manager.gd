@@ -2,6 +2,7 @@ extends Node
 
 @export var SCORE: int = 0
 
+@export var SCENARIOTOMINIGAME: float = 3.0/4.0
 
 signal lights_out
 signal lights_on
@@ -79,9 +80,12 @@ func _on_degration_timer_timeout() -> void:
 
 func _on_scenario_timer_timeout() -> void:
 	if not isInScenario and not isInMinigame:
-		var scenario: Scenario = Scenario.from_json(SCENARIOS.pick_random())
-		await DialogSystem.display_scenario(scenario)
-		$ScenarioTimer.start()
+		if(randf() <= SCENARIOTOMINIGAME):
+			var scenario: Scenario = Scenario.from_json(SCENARIOS.pick_random())
+			await DialogSystem.display_scenario(scenario)
+		else:
+			await MinigameManager.pickMinigame()
+	$ScenarioTimer.start()
 		
 
 
