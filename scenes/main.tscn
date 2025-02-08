@@ -40,6 +40,14 @@ animations = [{
 "loop": true,
 "name": &"hover",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_65ysg")
+}],
+"loop": true,
+"name": &"on",
+"speed": 5.0
 }]
 
 [node name="Main" type="Node2D"]
@@ -59,8 +67,8 @@ texture = ExtResource("2_svnow")
 unique_name_in_owner = true
 position = Vector2(600, 336)
 scale = Vector2(6.46875, 4.5)
-energy = 0.29
-blend_mode = 2
+energy = 0.0
+blend_mode = 1
 texture = ExtResource("5_ksvvw")
 
 [node name="Lightbulb" type="AnimatedSprite2D" parent="."]

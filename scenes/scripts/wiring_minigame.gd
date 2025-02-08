@@ -35,6 +35,7 @@ var amt_connected: int = 0:
 			GUI.hide_completion(12)
 			GameManager.isInMinigame = false
 			hide_minigame()
+			GameManager.lights_on.emit()
 
 @onready var Recievers: Array[Node] = %Recievers.get_children()
 @onready var Wires: Array[Node] = %Wires.get_children()
@@ -80,6 +81,3 @@ func refresh() -> void:
 
 func _process(delta: float) -> void:
 	global_position = lerp(global_position, target_pos, delta*SPEED)
-
-func _ready() -> void:
-	show_minigame()

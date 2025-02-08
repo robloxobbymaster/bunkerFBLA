@@ -2,9 +2,9 @@ extends Node
 
 @export var SCORE: int = 0
 
-#called every 2 seconds
-signal lights_out
 
+signal lights_out
+signal lights_on
 
 @export var MIN_DEGRATION: float = 0.5 #min
 @export var MAX_DEGRATION: float = 2 # max
@@ -57,11 +57,17 @@ func load_json_file(filePath : String) -> Dictionary:
 		print("File doesn't exist!")
 		
 	return {}
-	
+
+
+func on_lights_out() -> void:
+	MinigameManager.get_node("WiringMinigame").show_minigame()
+
 func _process(delta: float) -> void:
 	if not isInMinigame:
 		TIME_ELAPSED+=delta
 
+func _ready() -> void:
+	lights_out.connect(on_lights_out)
 
 func _on_degration_timer_timeout() -> void:
 	if not isInMinigame:
@@ -72,13 +78,13 @@ func _on_degration_timer_timeout() -> void:
 
 
 func _on_scenario_timer_timeout() -> void:
-	lights_out.emit()
 	if not isInScenario and not isInMinigame:
 		var scenario: Scenario = Scenario.from_json(SCENARIOS.pick_random())
 		await DialogSystem.display_scenario(scenario)
 		$ScenarioTimer.start()
 		
-		
+
+
 #Settings
 var BRIGHTNESS: float = 1:
 	set(value):

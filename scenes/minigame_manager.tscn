@@ -1,3 +1,8 @@
-[gd_scene format=3 uid="uid://dbx5i175kqf5d"]
+[gd_scene load_steps=2 format=3 uid="uid://dbx5i175kqf5d"]
+
+[ext_resource type="PackedScene" uid="uid://cq72uku8p1y7f" path="res://scenes/wiring_minigame.tscn" id="1_n7kyu"]
 
 [node name="MinigameManager" type="Node2D"]
+
+[node name="WiringMinigame" parent="." instance=ExtResource("1_n7kyu")]
+z_index = 1

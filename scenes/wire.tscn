@@ -13,13 +13,13 @@ script = ExtResource("1_x0gnu")
 
 [node name="StartPoint" type="Sprite2D" parent="."]
 unique_name_in_owner = true
-z_index = 1
+z_index = 2
 scale = Vector2(0.18, 0.162)
 texture = ExtResource("2_eqw17")
 
 [node name="Endpoint" type="Sprite2D" parent="."]
 unique_name_in_owner = true
-z_index = 1
+z_index = 2
 position = Vector2(87, 31)
 scale = Vector2(0.18, 0.162)
 texture = ExtResource("2_eqw17")
@@ -31,6 +31,7 @@ shape = SubResource("CircleShape2D_1sfi8")
 
 [node name="Line2D" type="Line2D" parent="."]
 unique_name_in_owner = true
+z_index = 1
 scale = Vector2(3, 3)
 points = PackedVector2Array(0, 0, 29.6667, 11)
 texture = ExtResource("3_47cpy")
