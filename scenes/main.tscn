@@ -106,10 +106,5 @@ texture = ExtResource("2_svnow")
 
 [node name="Item" parent="." instance=ExtResource("8_bjygp")]
 position = Vector2(517, 279)
-supply = {
-"HEALTH": 0,
-"HUNGER": 0,
-"THIRST": 0
-}
 
 [connection signal="frame_changed" from="Lightbulb" to="." method="_on_lightbulb_frame_changed"]

@@ -28,7 +28,6 @@ var Colors: Array[Color] = [
 var amt_connected: int = 0:
 	set(value):
 		amt_connected = value
-		print(amt_connected)
 		if(amt_connected == Colors.size()):
 			GUI.show_completion()
 			await get_tree().create_timer(1.5).timeout

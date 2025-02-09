@@ -15,7 +15,6 @@ signal lights_on
 	set(value):
 		isInMinigame = value
 		if not value:
-			print("Showing gui")
 			GUI.get_node("Stats").show()
 		else:
 			print("hiding")
@@ -26,6 +25,7 @@ signal lights_on
 		if value >= 100:
 			value = 100
 		HEALTH = value
+		print(HEALTH)
 		GUI.reapplyValues()
 		
 @export var HUNGER: int = 100:
@@ -87,7 +87,7 @@ func _on_degration_timer_timeout() -> void:
 func _on_scenario_timer_timeout() -> void:
 	print("yea")
 	if not isInScenario and not isInMinigame:
-		if(randf() < 0):
+		if(randf() <= SCENARIOTOMINIGAME):
 			var scenario: Scenario = Scenario.from_json(SCENARIOS.pick_random())
 			await DialogSystem.display_scenario(scenario)
 		else:
