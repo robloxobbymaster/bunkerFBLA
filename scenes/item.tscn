@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://bpuj8l0b63nxb"]
+
+[ext_resource type="Script" path="res://scenes/scripts/item.gd" id="1_a8nco"]
+[ext_resource type="Texture2D" uid="uid://m8gyqi8cuaxf" path="res://graphics/items/can.png" id="2_0hwd8"]
+[ext_resource type="Texture2D" uid="uid://dubf0c8i38ip1" path="res://graphics/items/tooltip.png" id="3_k5nqa"]
+
+[node name="Item" type="Node2D"]
+script = ExtResource("1_a8nco")
+icon = ExtResource("2_0hwd8")
+
+[node name="Icon" type="Sprite2D" parent="."]
+texture = ExtResource("2_0hwd8")
+centered = false
+
+[node name="Tooltip" type="NinePatchRect" parent="."]
+offset_left = -104.0
+offset_top = -43.0
+offset_right = 43.0
+offset_bottom = 44.0
+texture = ExtResource("3_k5nqa")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Tooltip"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 6.0
+offset_top = 4.0
+offset_right = 46.0
+offset_bottom = 30.0
+bbcode_enabled = true
+text = "[b]NAME[/b]"
+fit_content = true

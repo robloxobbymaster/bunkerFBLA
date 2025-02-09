@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cq72uku8p1y7f"]
+[gd_scene load_steps=6 format=3 uid="uid://cq72uku8p1y7f"]
 
 [ext_resource type="Script" path="res://scenes/scripts/wiring_minigame.gd" id="1_eeo3q"]
 [ext_resource type="Texture2D" uid="uid://eenkuob7yhri" path="res://graphics/wiring/wiring_backdrop.png" id="2_khj3h"]
 [ext_resource type="PackedScene" uid="uid://oyl8uachrofl" path="res://scenes/reciever.tscn" id="3_voawo"]
 [ext_resource type="PackedScene" uid="uid://c7rfe82vqswu6" path="res://scenes/wire.tscn" id="4_fll2s"]
+[ext_resource type="Texture2D" uid="uid://c5g77u610x6wo" path="res://graphics/lighting/circleLight.png" id="5_un4hy"]
 
 [node name="WiringMinigame" type="Node2D"]
 script = ExtResource("1_eeo3q")
@@ -53,3 +54,9 @@ position = Vector2(424, 440)
 
 [node name="Wire5" parent="Wires" instance=ExtResource("4_fll2s")]
 position = Vector2(424, 544)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(576, 316)
+scale = Vector2(2.375, 2.90625)
+energy = 0.1
+texture = ExtResource("5_un4hy")
