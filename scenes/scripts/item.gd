@@ -5,6 +5,7 @@ class_name Item extends Node2D
 	set(value):
 		icon = value
 		$Icon.texture = value
+		$Tooltip.global_position = ($Icon.position-$Tooltip.size/2)
 
 @export var supply : Dictionary = {
 	"HEALTH" : 0,
