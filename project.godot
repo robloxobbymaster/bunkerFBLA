@@ -22,6 +22,7 @@ GameManager="*res://scenes/GameManager.tscn"
 GUI="*res://scenes/gui.tscn"
 DialogSystem="*res://scenes/dialog_system.tscn"
 MinigameManager="*res://scenes/minigame_manager.tscn"
+GlobalWorldEnvironment="*res://scenes/world_environment.tscn"
 
 [display]
 

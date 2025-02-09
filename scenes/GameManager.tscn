@@ -1,10 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cxdkir738sv4e"]
+[gd_scene load_steps=2 format=3 uid="uid://cxdkir738sv4e"]
 
 [ext_resource type="Script" path="res://scenes/scripts/game_manager.gd" id="1_566pm"]
-
-[sub_resource type="Environment" id="Environment_i6tmb"]
-background_mode = 3
-adjustment_enabled = true
 
 [node name="GameManager" type="Node"]
 script = ExtResource("1_566pm")
@@ -17,9 +13,6 @@ autostart = true
 wait_time = 6.0
 one_shot = true
 autostart = true
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_i6tmb")
 
 [connection signal="timeout" from="DegrationTimer" to="." method="_on_degration_timer_timeout"]
 [connection signal="timeout" from="ScenarioTimer" to="." method="_on_scenario_timer_timeout"]

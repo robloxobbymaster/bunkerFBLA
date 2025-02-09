@@ -25,7 +25,6 @@ signal lights_on
 		if value >= 100:
 			value = 100
 		HEALTH = value
-		print(HEALTH)
 		GUI.reapplyValues()
 		
 @export var HUNGER: int = 100:
@@ -85,7 +84,6 @@ func _on_degration_timer_timeout() -> void:
 
 
 func _on_scenario_timer_timeout() -> void:
-	print("yea")
 	if not isInScenario and not isInMinigame:
 		if(randf() <= SCENARIOTOMINIGAME):
 			var scenario: Scenario = Scenario.from_json(SCENARIOS.pick_random())
