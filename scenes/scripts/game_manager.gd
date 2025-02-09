@@ -118,3 +118,43 @@ var SATURATION: float = 1:
 	set(value):
 		SATURATION = value
 		$WorldEnvironment.adjustment_saturation = SATURATION
+
+
+var save_dictionary = {
+	"SETTINGS" : {
+		"adjustment_contrast" : 0.2,
+		"adjustment_brightness" : 0.2,
+		"adjustment_saturation" : 0.2,
+	},
+	"STATS" : {
+		"HEALTH" : 0,
+		"HUNGER" : 0,
+		"THIRST" : 0,
+		"SCORE" : 0,
+		"TIME_ELAPSED": 0.0
+	}
+}
+
+func load_save(dict: Dictionary) -> void:
+	var settings: Dictionary = dict["SETTINGS"]
+	var stats: Dictionary = dict["STATS"]
+	
+	for key in settings.keys():
+		GlobalWorldEnvironment.environment[key] = settings[key]
+		
+	for stat in stats.keys():
+		self[stat] = stats[stat]
+		
+func save() -> Dictionary:
+	var dict = save_dictionary.duplicate(true)
+	
+	var SETTINGS: Dictionary = dict["SETTINGS"]
+	var STATS: Dictionary = dict["STATS"]
+	
+	for key in SETTINGS.keys():
+		SETTINGS[key] = GlobalWorldEnvironment.environment[key]
+	
+	for key in STATS.keys():
+		STATS[key] = self[key]
+		
+	return dict

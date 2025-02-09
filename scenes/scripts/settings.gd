@@ -8,7 +8,12 @@ func _ready() -> void:
 	%BrightnessSlider.value = worldEnv.adjustment_brightness
 	%SaturationSlider.value = worldEnv.adjustment_saturation
 
-func _show():
+func readjust() -> void:
+	%ContrastSlider.value = worldEnv.adjustment_contrast
+	%BrightnessSlider.value = worldEnv.adjustment_brightness
+	%SaturationSlider.value = worldEnv.adjustment_saturation
+	
+func _show() -> void:
 	self.show()
 
 func _on_contrast_slider_value_changed(value: float) -> void:
