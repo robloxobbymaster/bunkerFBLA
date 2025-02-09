@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://r5w1i1djqs01"]
+[gd_scene load_steps=10 format=3 uid="uid://r5w1i1djqs01"]
 
 [ext_resource type="Script" path="res://scenes/scripts/main.gd" id="1_jc81r"]
 [ext_resource type="Texture2D" uid="uid://bxxolf6jkepli" path="res://graphics/background/room.png" id="1_k68qw"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cxdyd158ieyet" path="res://graphics/background/lightbulb/LIGHTBULB_OFF.png" id="4_pg4pv"]
 [ext_resource type="Texture2D" uid="uid://c5g77u610x6wo" path="res://graphics/lighting/circleLight.png" id="5_ksvvw"]
 [ext_resource type="Texture2D" uid="uid://baxttem5lpojy" path="res://graphics/background/lightbulb/LIGHTBULB_OFF_HIGHLIGHT.png" id="5_moc2r"]
+[ext_resource type="PackedScene" uid="uid://bpuj8l0b63nxb" path="res://scenes/item.tscn" id="8_bjygp"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_kddhs"]
 animations = [{
@@ -102,5 +103,13 @@ position = Vector2(978, 550)
 position = Vector2(581.5, 391.25)
 scale = Vector2(0.839678, 0.866723)
 texture = ExtResource("2_svnow")
+
+[node name="Item" parent="." instance=ExtResource("8_bjygp")]
+position = Vector2(517, 279)
+supply = {
+"HEALTH": 0,
+"HUNGER": 0,
+"THIRST": 0
+}
 
 [connection signal="frame_changed" from="Lightbulb" to="." method="_on_lightbulb_frame_changed"]

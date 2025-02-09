@@ -11,7 +11,7 @@ signal decisionMade
 var shown_anchor: float = 0
 @onready var hidden_anchor: float = size.y
 var target_anchor: float = hidden_anchor #THIS IS FOR TOP ANCHOR
-
+@export var db: bool = false
 
 func _show() -> int:
 	target_anchor = shown_anchor
@@ -53,7 +53,7 @@ func display_scenario(scenario: Scenario, typingSpeed: float = 0.1) -> int:
 	
 	var icon = load(scenario.imageAddress)
 	
-	var db := false
+	
 	
 	for node in %Decisions.get_children(): node.queue_free()
 
@@ -70,9 +70,9 @@ func display_scenario(scenario: Scenario, typingSpeed: float = 0.1) -> int:
 		choiceBTN.pressed.connect(func():
 			if not db:
 				db = true
-
+				print(str(db)+"\n")
 				await get_tree().create_timer(scenario.reveal).timeout
-				display(scenario.determineOutcome(key), scenario.senderName, icon, true, typingSpeed)
+				await display(scenario.determineOutcome(key), scenario.senderName, icon, true, typingSpeed)
 				decisionMade.emit()
 				for child in %Decisions.get_children(): child.queue_free()
 				%Hover.hide()
@@ -84,6 +84,7 @@ func display_scenario(scenario: Scenario, typingSpeed: float = 0.1) -> int:
 	
 	
 	await decisionMade
+	db = false
 	GameManager.isInScenario = false
 	return 0
 

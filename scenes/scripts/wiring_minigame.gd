@@ -28,12 +28,14 @@ var Colors: Array[Color] = [
 var amt_connected: int = 0:
 	set(value):
 		amt_connected = value
+		print(amt_connected)
 		if(amt_connected == Colors.size()):
 			GUI.show_completion()
 			await get_tree().create_timer(1.5).timeout
 			
 			GUI.hide_completion(12)
 			GameManager.isInMinigame = false
+			completed.emit()
 			hide_minigame()
 			GameManager.lights_on.emit()
 
@@ -44,7 +46,10 @@ var amt_connected: int = 0:
 	
 func reset() -> void:
 	for wire in Wires: wire.reset()
-	for reciever in Recievers: reciever.reset()
+	for reciever: Reciever in Recievers: 
+		reciever.reset()
+		for sig in reciever.connected.get_connections():
+			reciever.connected.disconnect(sig.callable)
 	amt_connected = 0
 	topWire = null
 

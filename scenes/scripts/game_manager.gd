@@ -85,12 +85,14 @@ func _on_degration_timer_timeout() -> void:
 
 
 func _on_scenario_timer_timeout() -> void:
+	print("yea")
 	if not isInScenario and not isInMinigame:
-		if(randf() <= SCENARIOTOMINIGAME):
+		if(randf() < 0):
 			var scenario: Scenario = Scenario.from_json(SCENARIOS.pick_random())
 			await DialogSystem.display_scenario(scenario)
 		else:
 			await MinigameManager.pickMinigame()
+	
 	$ScenarioTimer.start()
 		
 
