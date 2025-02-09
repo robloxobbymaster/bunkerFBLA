@@ -94,7 +94,16 @@ func _on_scenario_timer_timeout() -> void:
 	$ScenarioTimer.start()
 		
 
-
+func pause() -> void:
+	get_tree().paused = true
+	DialogSystem.get_tree().paused = true
+	MinigameManager.get_tree().paused = true
+	print("pause")
+func resume() -> void:
+	get_tree().paused = false
+	DialogSystem.get_tree().paused = false
+	MinigameManager.get_tree().paused = false
+	print("resume")
 #Settings
 var BRIGHTNESS: float = 1:
 	set(value):

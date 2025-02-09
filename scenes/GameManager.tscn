@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://scenes/scripts/game_manager.gd" id="1_566pm"]
 
 [node name="GameManager" type="Node"]
+process_mode = 1
 script = ExtResource("1_566pm")
 
 [node name="DegrationTimer" type="Timer" parent="."]

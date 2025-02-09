@@ -8,6 +8,8 @@ func _ready() -> void:
 	%BrightnessSlider.value = worldEnv.adjustment_brightness
 	%SaturationSlider.value = worldEnv.adjustment_saturation
 
+func _show():
+	self.show()
 
 func _on_contrast_slider_value_changed(value: float) -> void:
 	worldEnv.adjustment_contrast = value
@@ -19,3 +21,8 @@ func _on_brightness_slider_value_changed(value: float) -> void:
 
 func _on_saturation_slider_value_changed(value: float) -> void:
 	worldEnv.adjustment_saturation = value
+
+
+func _on_close_btn_pressed() -> void:
+	self.hide()
+	GameManager.isInMinigame = false

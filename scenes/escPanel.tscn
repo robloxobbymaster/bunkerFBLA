@@ -1,0 +1,75 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqq0iev5rb44y"]
+
+[ext_resource type="Script" path="res://scenes/scripts/esc_panel.gd" id="1_fdqt2"]
+[ext_resource type="Texture2D" uid="uid://dd1qcshwk7ryn" path="res://graphics/settings/escPanelGraphic.png" id="1_v6m2q"]
+
+[node name="EscPanel" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fdqt2")
+
+[node name="Backdrop" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.278
+anchor_right = 0.722
+anchor_bottom = 1.0
+offset_left = -0.256042
+offset_right = 0.25592
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_v6m2q")
+
+[node name="ResumeBTN" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.34
+anchor_top = 0.21
+anchor_right = 0.66
+anchor_bottom = 0.321
+offset_left = 0.320007
+offset_top = 7.92
+offset_right = -0.320007
+offset_bottom = 7.99199
+grow_horizontal = 2
+grow_vertical = 2
+text = "Resume"
+
+[node name="OptionsBTN" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.34
+anchor_top = 0.395
+anchor_right = 0.66
+anchor_bottom = 0.506
+offset_left = 0.320007
+offset_top = 8.03999
+offset_right = -0.320007
+offset_bottom = 8.11197
+grow_horizontal = 2
+grow_vertical = 2
+text = "Options"
+
+[node name="QuitBTN" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.34
+anchor_top = 0.58
+anchor_right = 0.66
+anchor_bottom = 0.691
+offset_left = 0.320007
+offset_top = 8.15997
+offset_right = -0.320007
+offset_bottom = 8.23196
+grow_horizontal = 2
+grow_vertical = 2
+text = "Quit"
+
+[connection signal="pressed" from="ResumeBTN" to="." method="_on_resume_btn_pressed"]
+[connection signal="pressed" from="OptionsBTN" to="." method="_on_options_btn_pressed"]
+[connection signal="pressed" from="QuitBTN" to="." method="_on_quit_btn_pressed"]

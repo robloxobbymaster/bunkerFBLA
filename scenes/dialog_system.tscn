@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://b87dqbgyo8v33" path="res://graphics/dialogSystem/SelectSymbol.png" id="3_814je"]
 
 [node name="DialogSystem" type="NinePatchRect"]
+process_mode = 1
 top_level = true
 z_index = 4096
 anchors_preset = -1
