@@ -15,11 +15,14 @@ func _on_resume_btn_pressed() -> void:
 	
 func _on_options_btn_pressed() -> void:
 	GUI.get_node("Settings")._show()
-	GameManager.isInMinigame = true
+	
 	
 func _on_quit_btn_pressed() -> void:
 	pass # Replace with function body.
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("escapePanel"):
-		is_shown = not is_shown
+		if GUI.get_node("Settings").visible:
+			GUI.get_node("Settings").hide()
+		else:
+			is_shown = not is_shown
