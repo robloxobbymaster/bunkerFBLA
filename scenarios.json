@@ -1,41 +1,30 @@
 {
   "SCENARIOS" : [
 	{
-	"main_dialog_piece" : "A guy walks up and offers some beans. Do you take them?",
-	"reveal" : 0,
-	"choices" : {
-		"Yes" : [{
-			"MSG" : "The beans tasted good.",
-			"STATS" : {
-				"HEALTH" : [5,20],
-				"HUNGER" : [50,50]
+		"main_dialog_piece": "A wandering survivor begs for food and water. What will you do?",
+		"reveal": 0,
+		"choices": {
+		  "Share resources": [
+			{
+			  "MSG": "You help them, but your supplies dwindle.",
+			  "STATS": {
+				"HUNGER": [-15, -10],
+				"THIRST": [-10, -5]
+			  }
 			}
-		}],
-		"No" : [{
-			"MSG" : "The guy shot u.",
-			"STATS" : {
-				"HEALTH" : [-30, -5]
+		  ],
+		  "Turn them away": [
+			{
+			  "MSG": "You keep your supplies, but feel a little bad.",
+			  "STATS": {
+				"HUNGER": [0, 0],
+				"THIRST": [0, 0],
+				"HEALTH": [0, 0]
+			  }
 			}
-		}]
-	}
-},
-	
-	{
-		"main_dialog_piece" : "A survivor knocks on your door. They say they're wounded. Do you let them in?",
-		"reveal" : 0,
-		"choices" : {
-			"Yes" : [{
-				"MSG" : "They eat your food and leave.",
-				"STATS" : {
-					"HUNGER" : [-30, -20],
-					"THIRST" : [-10, -5]
-				}
-			}],
-			"No" : [{
-				"MSG" : "They leave",
-			}]
+		  ]
 		}
-	},
+  	},
 	
 	{
 		"main_dialog_piece" : "Intruders violently hit your door. They demand food and water. What will you do?",
@@ -56,13 +45,106 @@
 			}]
 		}
 	},
-
-  
-  
-  
-  
+	
+	{
+		"main_dialog_piece": "Rats have infested part of your bunker, but they could be a food source. What will you do?",
+		"reveal": 0,
+		"choices": {
+		  "Try to catch them for meat": [
+			{
+			  "MSG": "You manage to catch a few rats, but suffer a nasty bite.",
+			  "STATS": {
+				"HUNGER": [10, 15],
+				"HEALTH": [-10, -5]
+			  }
+			}
+		  ],
+		  "Seal off the infested area": [
+			{
+			  "MSG": "You lose access to part of the bunker, but avoid the rats entirely.",
+			  "STATS": {
+				"HUNGER": [0, 0],
+				"THIRST": [0, 0],
+				"HEALTH": [0, 0]
+			  }
+			}
+		  ]
+		}
+  	},
+	{
+		"main_dialog_piece": "A roaming trader arrives, offering water in exchange for food. What's your decision?",
+		"reveal": 0,
+		"choices": {
+		  "Trade food for water": [
+			{
+			  "MSG": "You trade away precious food but gain a good supply of water.",
+			  "STATS": {
+				"HUNGER": [-15, -10],
+				"THIRST": [10, 15]
+			  }
+			}
+		  ],
+		  "Turn the trader away": [
+			{
+			  "MSG": "You keep your supplies as they are, but miss an opportunity for more water.",
+			  "STATS": {
+				"HUNGER": [0, 0],
+				"THIRST": [0, 0]
+			  }
+			}
+		  ]
+		}
+  	},
+	{
+		"main_dialog_piece": "Some of your stored food has spoiled unexpectedly.",
+		"reveal": 0,
+		"choices": {
+		  "Try to salvage edible parts": [
+			{
+			  "MSG": "You manage to eat some, but risk sickness.",
+			  "STATS": {
+				"HUNGER": [5, 10],
+				"HEALTH": [-10, -5]
+			  }
+			}
+		  ],
+		  "Toss it all out": [
+			{
+			  "MSG": "No risk of illness, but you lose potential meals.",
+			  "STATS": {
+				"HUNGER": [-10, -5]
+			  }
+			}
+		  ]
+		}
+	},
+	
+	{
+		"main_dialog_piece": "You discover an old orchard just beyond the bunker.",
+		"reveal": 0,
+		"choices": {
+		  "Gather fruit": [
+			{
+			  "MSG": "You collect fresh produce, but you're not sure if its clean.",
+			  "STATS": {
+				"HUNGER": [15, 20],
+				"THIRST": [5, 5],
+				"HEALTH": [-5, 0]
+			  }
+			}
+		  ],
+		  "Ignore it": [
+			{
+			  "MSG": "You keep your routine, missing out on potential food.",
+			  "STATS": {
+				"HUNGER": [0, 0],
+				"THIRST": [0, 0],
+				"HEALTH": [0, 0]
+			  }
+			}
+		  ]
+		}
+	},
+	
   ]
-
-
-
 }
